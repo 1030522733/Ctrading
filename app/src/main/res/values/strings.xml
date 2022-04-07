@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">碳交易</string>
+
+    <!--    登录页-->
+    <string name="loginTitle">请使用碳交易账号登录!</string>
+    <string name="username">手机号</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+</resources>

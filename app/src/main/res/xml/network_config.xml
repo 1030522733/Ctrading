@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+<!--    Android8.0以上默认https访问，要访问http网络需进行配置-->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

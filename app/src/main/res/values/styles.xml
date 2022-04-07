@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <item name="colorPrimary">@color/themeColor</item>
+        <item name="colorPrimaryDark">@color/themeColor</item>
+        <item name="colorAccent">@color/themeColor</item>
+        <!--黑白屏暂时解决-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ActivityMainTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+
+</resources>
