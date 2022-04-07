@@ -2,18 +2,18 @@ package com.example.ctrading.mvvm.ui.fragment;
 
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
-import com.example.ctrading.databinding.FragmentSquareBinding;
-import com.example.ctrading.mvvm.viewmodel.FragmentViewModel;
+import com.example.ctrading.databinding.FragmentReleaseBinding;
+import com.example.ctrading.mvvm.viewmodel.ReleaseViewModel;
 
 /**
  * @Author: JianTours
- * @Data: 2021/12/23 20:33
- * @Description:广场Frg
+ * @Data: 2022/4/7 22:57
+ * @Description:
  */
-public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBinding> {
+public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBinding> {
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_square;
+        return R.layout.fragment_release;
     }
 
     @Override

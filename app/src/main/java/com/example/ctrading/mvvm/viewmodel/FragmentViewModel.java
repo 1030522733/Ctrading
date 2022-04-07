@@ -10,8 +10,8 @@ import com.example.ctrading.app.base.BaseVM;
  * @Data: 2022/4/7 20:32
  * @Description:
  */
-public class SquareViewModel extends BaseVM{
-    public SquareViewModel(@NonNull Application application) {
+public class FragmentViewModel extends BaseVM{
+    public FragmentViewModel(@NonNull Application application) {
         super(application);
     }
 }

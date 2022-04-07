@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 import com.example.ctrading.app.base.BaseVM;
 /**
  * @Author: JianTours
- * @Data: 2022/4/7 21:32
+ * @Data: 2022/4/7 21:51
  * @Description:
  */
-public class MatchViewModel extends BaseVM{
-    public MatchViewModel(@NonNull Application application) {
+public class ReleaseViewModel extends BaseVM{
+    public ReleaseViewModel(@NonNull Application application) {
         super(application);
     }
 }
