@@ -31,7 +31,7 @@ public class StartActivity extends BaseAct<StartViewModel, ActivityStartBinding>
         binding.pvStart.setOnParticleAnimListener(new ParticleView.ParticleAnimListener() {
             @Override
             public void onAnimationEnd() {
-                startActivity(new Intent(StartActivity.this,LoginActvity.class));
+                startActivity(new Intent(StartActivity.this,MainActivity.class));
                 finish();
             }
         });

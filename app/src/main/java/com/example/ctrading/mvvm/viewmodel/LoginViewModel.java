@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.blankj.utilcode.util.ApiUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -24,11 +25,13 @@ public class LoginViewModel extends BaseVM{
     }
 
     @SuppressLint("CheckResult")
-    public void login(int phone,String password){
+    public MutableLiveData<UserBean> login(String phone, String password){
+        MutableLiveData<UserBean> mutableLiveData = new MutableLiveData<>();
         ApiService apiService = NetworkApi.createService(ApiService.class);
         apiService.login(phone,password).compose(NetworkApi.applySchedulers(new BaseObserver<UserBean>() {
             @Override
             public void onSucceed(UserBean userBean) {
+                mutableLiveData.setValue(userBean);
                 LogUtils.json(userBean);
             }
 
@@ -37,5 +40,6 @@ public class LoginViewModel extends BaseVM{
                 LogUtils.d(e);
             }
         }));
+        return mutableLiveData;
     }
 }

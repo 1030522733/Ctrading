@@ -1,13 +1,14 @@
 package com.example.ctrading.mvvm.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.content.Intent;
 
-import com.blankj.utilcode.util.LogUtils;
+import androidx.lifecycle.Observer;
+
 import com.example.ctrading.R;
-import com.example.ctrading.app.base.App;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.databinding.ActivityLoginBinding;
+import com.example.ctrading.mvvm.model.bean.UserBean;
 import com.example.ctrading.mvvm.viewmodel.LoginViewModel;
 
 import es.dmoral.toasty.Toasty;
@@ -25,7 +26,6 @@ public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> 
 
     @Override
     protected void init() {
-
     }
 
     @SuppressLint("CheckResult")
@@ -34,15 +34,55 @@ public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> 
         binding.btLogin.setOnClickListener(view -> {
             String phone = binding.etLoginPhone.getText().toString();
             String password = binding.etLoginPassword.getText().toString();
-            int number = 0;
-            if (!TextUtils.isEmpty(phone)) {
-                number = Integer.valueOf(phone);
-            }
             if (phone.length() == 11 && !password.isEmpty()) {
-                mViewModel.login(number, password);
+                login(phone, password);
+                binding.aviLogin.show();
+                banClick();
             } else {
-                Toasty.normal(mContext, "请输入正确的手机号和密码",Toasty.LENGTH_SHORT).show();
+                Toasty.normal(mContext, "请输入正确的手机号和密码", Toasty.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void login(String phone, String password) {
+        mViewModel.login(phone, password).observe(this, new Observer<UserBean>() {
+            @Override
+            public void onChanged(UserBean userBean) {
+                binding.aviLogin.hide();
+                allowClick();
+                if (userBean.getData() != null) {
+                    if (phone.equals(userBean.getData().getPhone()) &&
+                            password.equals(userBean.getData().getPassword())) {
+                        Toasty.success(mContext, "登录成功", Toasty.LENGTH_SHORT).show();
+                        startActivity(new Intent(mContext, MainActivity.class));
+                        finish();
+                    } else {
+                        Toasty.error(mContext, "密码错误", Toasty.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toasty.error(mContext, "用户名不存在或密码错误", Toasty.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    /**
+     * 禁止操作
+     */
+    private void banClick() {
+        binding.etLoginPhone.setEnabled(false);
+        binding.etLoginPassword.setEnabled(false);
+        binding.btLogin.setEnabled(false);
+        binding.btRegister.setEnabled(false);
+    }
+
+    /**
+     * 允许操作
+     */
+    private void allowClick() {
+        binding.etLoginPhone.setEnabled(true);
+        binding.etLoginPassword.setEnabled(true);
+        binding.btLogin.setEnabled(true);
+        binding.btRegister.setEnabled(true);
     }
 }

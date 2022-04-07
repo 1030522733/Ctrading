@@ -53,18 +53,18 @@ public class UserBean implements Serializable {
          * organization : 方法
          */
 
-        private int phone;
+        private String phone;
         private String password;
         private String name;
         private int sex;
         private String address;
         private String organization;
 
-        public int getPhone() {
+        public String getPhone() {
             return phone;
         }
 
-        public void setPhone(int phone) {
+        public void setPhone(String phone) {
             this.phone = phone;
         }
 

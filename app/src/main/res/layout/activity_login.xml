@@ -49,7 +49,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/shape_bg_input"
-            android:hint="请输入手机号"
+            android:hint="请输入11位手机号"
             android:paddingLeft="20dp"
             android:inputType="number"
             android:textColor="@color/black"
@@ -94,6 +94,18 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvLoginPassword" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLogin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:indicatorColor="@color/white"
+            app:indicatorName="LineScalePulseOutRapidIndicator"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btLogin"

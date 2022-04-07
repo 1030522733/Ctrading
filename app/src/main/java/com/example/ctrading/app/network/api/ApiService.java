@@ -16,5 +16,5 @@ import retrofit2.http.Query;
  */
 public interface ApiService {
     @GET("/user/queryUser")
-    Observable<UserBean> login(@Query("phone")int phone,@Query("password")String password);
+    Observable<UserBean> login(@Query("phone")String phone,@Query("password")String password);
 }
