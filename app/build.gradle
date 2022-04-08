@@ -79,5 +79,6 @@ dependencies {
 
     //精致Toast
     implementation 'com.github.GrenderG:Toasty:1.5.2'
-
+    //选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
 }

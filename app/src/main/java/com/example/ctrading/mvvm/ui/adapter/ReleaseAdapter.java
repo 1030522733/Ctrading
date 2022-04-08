@@ -37,9 +37,9 @@ public class ReleaseAdapter extends FragmentPagerAdapter {
 
     public ReleaseAdapter(@NonNull FragmentManager fm, Context context) {
         super(fm);
-        releaseFragment1 = new ReleaseFragment();
-        releaseFragment2 = new ReleaseFragment();
-        releaseFragment3 = new ReleaseFragment();
+        releaseFragment1 = new ReleaseFragment(0);
+        releaseFragment2 = new ReleaseFragment(1);
+        releaseFragment3 = new ReleaseFragment(2);
     }
 
     @NonNull

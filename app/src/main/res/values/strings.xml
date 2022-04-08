@@ -13,4 +13,15 @@
     <string name="password">密码</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
+
+<!-- 需求-->
+    <string name="tvRelease1">我有碳减排的资源</string>
+    <string name="tvRelease2">我要出售碳指标</string>
+    <string name="tvRelease3">我要收购碳指标</string>
+
+    <string name="tvReleaseDetails1">如果您有树林，太阳能，风能，水电，生物质发电，沼气发电等等能产生碳减排量的项目，
+        但又不知道有多少减排量，我们可以帮您计算出有多少碳指标，把碳资产开发出来出售达到额外收益，请填写以下信息：</string>
+    <string name="tvReleaseDetails2">如果您有碳指标（碳配额或CCER）需要出售，我们可为您联系买家，尽早锁定碳收益，请填写以下信息：</string>
+    <string name="tvReleaseDetails3">如果您想大批量收购碳指标，我们可为您提供各类减排指标出售信息，抢占价格优势，满足您对碳指标的需求，请填写以下信息：</string>
+
 </resources>
