@@ -2,25 +2,36 @@ package com.example.ctrading.mvvm.ui.fragment;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
+
+import androidx.lifecycle.Observer;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
+import com.example.ctrading.app.global.EventBusTag;
 import com.example.ctrading.databinding.FragmentReleaseBinding;
 import com.example.ctrading.mvvm.model.bean.JsonBean;
+import com.example.ctrading.mvvm.model.bean.ProjectBean;
 import com.example.ctrading.mvvm.viewmodel.ReleaseViewModel;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
+import org.simple.eventbus.EventBus;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * @Author: JianTours
@@ -116,7 +127,97 @@ public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBi
             pvOptions.setPicker(listType);
             pvOptions.show();
         });
+
+        binding.btReleaseOk.setOnClickListener(view -> {
+            String address = binding.etReleaseAddress.getText().toString();
+            String Type = binding.etReleaseType.getText().toString();
+            String Number = binding.etReleaseNumber.getText().toString();
+            String Price = binding.etReleasePrice.getText().toString();
+            String organization = binding.etReleaseOrganization.getText().toString();
+            String people = binding.etReleasePeople.getText().toString();
+            String email = binding.etReleaseEmail.getText().toString();
+            String details = binding.etReleaseDetails.getText().toString();
+
+            if (!TextUtils.isEmpty(address) && !TextUtils.isEmpty(Type)
+                    && !TextUtils.isEmpty(Number) && !TextUtils.isEmpty(organization)
+                    && !TextUtils.isEmpty(people) && !TextUtils.isEmpty(email)) {
+
+                ProjectBean.DataBean.ProjectsBean projectsBean = new ProjectBean.DataBean.ProjectsBean();
+                int number = Integer.parseInt(Number);
+                int type = getType(Type);
+
+                //id
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMddHHmmss");// HH:mm:ss
+                SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy/MM/dd/");// HH:mm:ss
+                Date date = new Date(System.currentTimeMillis());
+                String id = simpleDateFormat.format(date);
+                String day = simpleDateFormat2.format(date);
+
+                projectsBean.setProjectId(id);
+                projectsBean.setStauts(0);
+                projectsBean.setProjectType(flag);
+                projectsBean.setTime(day);
+
+                projectsBean.setAddress(address);
+                projectsBean.setResourcesType(type);
+                projectsBean.setNumber(number);
+                projectsBean.setOrganization(organization);
+                projectsBean.setPeople(people);
+                projectsBean.setEmile(email);
+                if (flag == 0) {
+                    banClick();
+                    addProject(projectsBean);
+                } else {
+                    if (!TextUtils.isEmpty(Price) && !TextUtils.isEmpty(details)) {
+                        int price = Integer.parseInt(Price);
+                        projectsBean.setPrice(price);
+                        projectsBean.setDetails(details);
+                        banClick();
+                        addProject(projectsBean);
+                    } else {
+                        Toasty.normal(this.getContext(), "请正确填写信息", Toasty.LENGTH_SHORT).show();
+                    }
+                }
+            } else {
+                Toasty.normal(this.getContext(), "请正确填写信息", Toasty.LENGTH_SHORT).show();
+            }
+        });
     }
+
+    public void addProject(ProjectBean.DataBean.ProjectsBean projectsBean) {
+        mViewModel.addProject(projectsBean).observe(this, new Observer<ProjectBean>() {
+            @Override
+            public void onChanged(ProjectBean projectBean) {
+                allowClick();
+                if (projectBean.getData() != null) {
+                    if (projectBean.getCode() == 0) {
+                        Toasty.success(getContext(), "提交成功", Toasty.LENGTH_SHORT).show();
+                        Message message = Message.obtain();
+                        EventBus.getDefault().post(message, EventBusTag.RELEASE_ADD);
+                    } else {
+                        Toasty.error(getContext(), "提交失败", Toasty.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toasty.normal(getContext(), "网络繁忙", Toasty.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    /**
+     *禁止点击
+     */
+    private void banClick(){
+        binding.btReleaseOk.setEnabled(false);
+    }
+
+    /**
+     * 允许点击
+     */
+    private void allowClick(){
+        binding.btReleaseOk.setEnabled(true);
+    }
+
 
     /**
      * 数据解析
@@ -201,5 +302,25 @@ public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBi
         return detail;
     }
 
+    /**
+     * 分辨资源类别
+     */
+    private int getType(String type) {
+        if (type.equals("树林")) {
+            return 0;
+        } else if (type.equals("风能")) {
+            return 1;
+        } else if (type.equals("太阳能")) {
+            return 2;
+        } else if (type.equals("水电")) {
+            return 3;
+        } else if (type.equals("生物质发电")) {
+            return 4;
+        } else if (type.equals("沼气发电")) {
+            return 5;
+        } else {
+            return 6;
+        }
+    }
 
 }

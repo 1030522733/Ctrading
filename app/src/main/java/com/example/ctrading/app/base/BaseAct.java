@@ -12,6 +12,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.simple.eventbus.EventBus;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -58,6 +60,8 @@ public abstract class BaseAct<VM extends BaseVM, VDB extends ViewDataBinding>
         createViewModel();
         init();
         runFlow();
+
+        EventBus.getDefault().register(this);
     }
 
     public void createViewModel() {
@@ -89,5 +93,11 @@ public abstract class BaseAct<VM extends BaseVM, VDB extends ViewDataBinding>
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

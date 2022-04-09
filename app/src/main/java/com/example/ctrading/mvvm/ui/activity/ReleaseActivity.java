@@ -1,5 +1,6 @@
 package com.example.ctrading.mvvm.ui.activity;
 
+import android.os.Message;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,9 +10,12 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.app.global.Constant;
+import com.example.ctrading.app.global.EventBusTag;
 import com.example.ctrading.databinding.ActivityReleaseBinding;
 import com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter;
 import com.example.ctrading.mvvm.viewmodel.ReleaseViewModel;
+
+import org.simple.eventbus.Subscriber;
 
 /**
  * @Author: JianTours
@@ -71,6 +75,14 @@ public class ReleaseActivity extends BaseAct<ReleaseViewModel, ActivityReleaseBi
         });
 
         ivBack.setOnClickListener(view -> finish());
+    }
+
+    /**
+     * 结束
+     */
+    @Subscriber(tag = EventBusTag.RELEASE_ADD)
+    private void goHome(Message message){
+        finish();
     }
 
     /**
