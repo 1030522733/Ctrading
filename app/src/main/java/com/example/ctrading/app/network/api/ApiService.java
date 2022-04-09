@@ -24,4 +24,8 @@ public interface ApiService {
     //添加订单
     @POST("/project/add")
     Observable<ProjectBean> addProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
+
+    //所有订单
+    @GET("/project/queryAll")
+    Observable<ProjectBean> queryProjectAll();
 }

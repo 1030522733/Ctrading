@@ -14,6 +14,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
 import com.example.ctrading.app.global.EventBusTag;
+import com.example.ctrading.app.utils.ParseUtils;
 import com.example.ctrading.databinding.FragmentReleaseBinding;
 import com.example.ctrading.mvvm.model.bean.JsonBean;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
@@ -144,7 +145,7 @@ public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBi
 
                 ProjectBean.DataBean.ProjectsBean projectsBean = new ProjectBean.DataBean.ProjectsBean();
                 int number = Integer.parseInt(Number);
-                int type = getType(Type);
+                int type = ParseUtils.getType(Type);
 
                 //id
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMddHHmmss");// HH:mm:ss
@@ -301,26 +302,4 @@ public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBi
         }
         return detail;
     }
-
-    /**
-     * 分辨资源类别
-     */
-    private int getType(String type) {
-        if (type.equals("树林")) {
-            return 0;
-        } else if (type.equals("风能")) {
-            return 1;
-        } else if (type.equals("太阳能")) {
-            return 2;
-        } else if (type.equals("水电")) {
-            return 3;
-        } else if (type.equals("生物质发电")) {
-            return 4;
-        } else if (type.equals("沼气发电")) {
-            return 5;
-        } else {
-            return 6;
-        }
-    }
-
 }
