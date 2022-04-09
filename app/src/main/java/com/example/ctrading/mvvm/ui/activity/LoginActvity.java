@@ -1,7 +1,9 @@
 package com.example.ctrading.mvvm.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import androidx.lifecycle.Observer;
 
@@ -19,6 +21,9 @@ import es.dmoral.toasty.Toasty;
  * @Description:
  */
 public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> {
+
+
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_login;
@@ -54,6 +59,10 @@ public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> 
                     if (phone.equals(userBean.getData().getPhone()) &&
                             password.equals(userBean.getData().getPassword())) {
                         Toasty.success(mContext, "登录成功", Toasty.LENGTH_SHORT).show();
+                        SharedPreferences sp = mContext.getSharedPreferences("login", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("isLogin",true);
+                        editor.commit();
                         startActivity(new Intent(mContext, MainActivity.class));
                         finish();
                     } else {

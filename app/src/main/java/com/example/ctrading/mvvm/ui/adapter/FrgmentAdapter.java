@@ -43,13 +43,13 @@ public class FrgmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment = null;
         switch (position) {
-            case Constant.PAGE_MARKET:
+            case 0:
                 fragment = marketFragment;
                 break;
-            case Constant.PAGE_SQUARE:
+            case 1:
                 fragment = squareFrgment;
                 break;
-            case Constant.PAGE_MATCHING:
+            case 2:
                 fragment = matchFragment;
                 break;
         }

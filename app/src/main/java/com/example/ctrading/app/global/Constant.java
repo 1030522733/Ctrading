@@ -10,8 +10,8 @@ import android.widget.TextView;
  */
 public class Constant {
 
-    //几个代表页面的常量
-    public static final int PAGE_MARKET = 0;
-    public static final int PAGE_SQUARE = 1;
-    public static final int PAGE_MATCHING = 2;
+    /**
+     * 是否已经登录
+     */
+    public final static String IS_LOGIN = "is_login";
 }
