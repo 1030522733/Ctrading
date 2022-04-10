@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/layoutMain"
-            layout="@layout/toolbar_main" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vpHome"
-            app:layout_constraintBottom_toTopOf="@id/tbHome"
-            app:layout_constraintTop_toBottomOf="@id/layoutMain"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="match_parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tbHome"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:tabIndicatorHeight="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <include
+                android:id="@+id/layoutMain"
+                layout="@layout/toolbar_main" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpHome"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/tbHome"
+                app:layout_constraintTop_toBottomOf="@id/layoutMain" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tbHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:tabIndicatorHeight="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_home"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/aliceblue"
+            app:headerLayout="@layout/toolbar_header"
+            app:itemIconPadding="12dp"
+            app:itemIconSize="30sp"
+            app:menu="@menu/menu_main" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

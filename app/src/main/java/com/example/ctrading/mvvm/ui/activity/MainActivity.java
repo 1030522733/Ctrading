@@ -1,6 +1,7 @@
 package com.example.ctrading.mvvm.ui.activity;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,7 +51,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
     @Override
     protected void init() {
         ConstraintLayout toolbar = (ConstraintLayout) binding.layoutMain;
-        ivToolbar = (ImageView) toolbar.getViewById(R.id.ivLoginPassword);
+        ivToolbar = (ImageView) toolbar.getViewById(R.id.ivMain);
         tvToolbar = (TextView) toolbar.getViewById(R.id.tvMain);
         tvToolbar.setText(title[0]);
 
@@ -62,6 +63,11 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
 
     @Override
     protected void runFlow() {
+        //Navigation
+        ivToolbar.setOnClickListener(view -> {
+            binding.drawerLayout.openDrawer(Gravity.LEFT);
+        });
+
         //滑动监听该表标题栏
         binding.vpHome.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
