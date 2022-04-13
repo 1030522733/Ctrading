@@ -3,20 +3,26 @@ package com.example.ctrading.mvvm.ui.activity;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.App;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.databinding.ActivityMainBinding;
 import com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter;
+import com.example.ctrading.mvvm.ui.parts.LogOutPopup;
 import com.example.ctrading.mvvm.viewmodel.MainViewModel;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.lxj.xpopup.XPopup;
 
 /**
  * @Author: JianTours
@@ -90,6 +96,28 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
             assert tab != null;
             tab.setCustomView(setTabView(this, i));
         }
+
+        /**
+         * Navigation点击事件
+         */
+        binding.navHome.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.navInfo:
+                        break;
+                    case R.id.navOrder:
+                        break;
+                    case R.id.navOut:
+                        LogOutPopup logOutPopup = new LogOutPopup(mContext);
+                        new XPopup.Builder(mContext).asCustom(logOutPopup).show();
+                        break;
+                }
+                //关闭DrawerLayout
+                binding.drawerLayout.closeDrawer(Gravity.LEFT);
+                return false;
+            }
+        });
     }
 
     /**

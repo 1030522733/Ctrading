@@ -65,7 +65,6 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
             public void onChanged(ProjectBean projectBean) {
                 list.clear();
                 list.addAll(projectBean.getData().getProjects());
-                LogUtils.json(projectBean);
                 rvMarketAdapter.notifyDataSetChanged();
             }
         });
