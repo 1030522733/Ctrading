@@ -32,7 +32,6 @@ public class LoginViewModel extends BaseVM{
             @Override
             public void onSucceed(UserBean userBean) {
                 mutableLiveData.setValue(userBean);
-                LogUtils.json(userBean);
             }
 
             @Override

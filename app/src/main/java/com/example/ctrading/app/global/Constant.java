@@ -9,9 +9,13 @@ import android.widget.TextView;
  * @Description:
  */
 public class Constant {
-
     /**
-     * 是否已经登录
+     * 是否已登录
      */
     public final static String IS_LOGIN = "is_login";
+
+    /**
+     * 手机号
+     */
+    public final static String MY_PHONE = "my_phone";
 }

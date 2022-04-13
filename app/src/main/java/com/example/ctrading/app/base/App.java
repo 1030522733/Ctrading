@@ -5,10 +5,9 @@ import android.app.Application;
 import android.content.Context;
 
 
-import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.app.network.FrameWorkNetworkInfo;
 import com.example.ctrading.app.network.NetworkApi;
-import com.example.ctrading.app.utils.MVUtils;
+import com.example.ctrading.app.utils.MmkvUtils;
 import com.tencent.mmkv.MMKV;
 
 /**
@@ -28,7 +27,7 @@ public class App extends Application {
         //MMKV初始化
         MMKV.initialize(this);
         //工具类初始化
-        MVUtils.getInstance();
+        MmkvUtils.getInstance();
         //网络初始化
         NetworkApi.init(new FrameWorkNetworkInfo(this));
     }

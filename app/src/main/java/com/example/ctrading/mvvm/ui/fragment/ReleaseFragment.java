@@ -13,7 +13,9 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
+import com.example.ctrading.app.global.Constant;
 import com.example.ctrading.app.global.EventBusTag;
+import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.app.utils.ParseUtils;
 import com.example.ctrading.databinding.FragmentReleaseBinding;
 import com.example.ctrading.mvvm.model.bean.JsonBean;
@@ -158,6 +160,7 @@ public class ReleaseFragment extends BaseFrg<ReleaseViewModel, FragmentReleaseBi
                 projectsBean.setStauts(0);
                 projectsBean.setProjectType(flag);
                 projectsBean.setTime(day);
+                projectsBean.setPhoneA(MmkvUtils.getString(Constant.MY_PHONE));
 
                 projectsBean.setAddress(address);
                 projectsBean.setResourcesType(type);

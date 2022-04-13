@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer;
 
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
+import com.example.ctrading.app.global.Constant;
+import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.databinding.ActivityLoginBinding;
 import com.example.ctrading.mvvm.model.bean.UserBean;
 import com.example.ctrading.mvvm.viewmodel.LoginViewModel;
@@ -59,10 +61,8 @@ public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> 
                     if (phone.equals(userBean.getData().getPhone()) &&
                             password.equals(userBean.getData().getPassword())) {
                         Toasty.success(mContext, "登录成功", Toasty.LENGTH_SHORT).show();
-                        SharedPreferences sp = mContext.getSharedPreferences("login", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sp.edit();
-                        editor.putBoolean("isLogin",true);
-                        editor.commit();
+                        MmkvUtils.put(Constant.IS_LOGIN,true);
+                        MmkvUtils.put(Constant.MY_PHONE,userBean.getData().getPhone());
                         startActivity(new Intent(mContext, MainActivity.class));
                         finish();
                     } else {

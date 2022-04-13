@@ -12,20 +12,20 @@ import java.util.Set;
  * @Data: 2021/12/22 21:25
  * @Description: MKV工具类
  */
-public class MVUtils {
+public class MmkvUtils {
 
-    private static MVUtils mInstance;
+    private static MmkvUtils mInstance;
     private static MMKV mmkv;
 
-    public MVUtils() {
+    public MmkvUtils() {
         mmkv = MMKV.defaultMMKV();
     }
 
-    public static MVUtils getInstance() {
+    public static MmkvUtils getInstance() {
         if (mInstance == null) {
-            synchronized (MVUtils.class) {
+            synchronized (MmkvUtils.class) {
                 if (mInstance == null) {
-                    mInstance = new MVUtils();
+                    mInstance = new MmkvUtils();
                 }
             }
         }
