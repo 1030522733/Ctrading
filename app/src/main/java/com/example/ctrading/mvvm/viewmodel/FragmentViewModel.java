@@ -6,6 +6,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.app.base.BaseVM;
 import com.example.ctrading.app.network.BaseObserver;
 import com.example.ctrading.app.network.NetworkApi;

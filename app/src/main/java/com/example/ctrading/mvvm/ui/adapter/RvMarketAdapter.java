@@ -25,6 +25,9 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, ProjectBean.DataBean.ProjectsBean item) {
+        if (item.equals(mData.get(mData.size()-1))){
+            helper.setGone(R.id.vvRvMarketMore,true);
+        }
         if (item.getProjectType()==0){
             helper.setImageResource(R.id.ivRvMarket,R.mipmap.icon_carbon);
             helper.setText(R.id.tvRvMarketNumber1,"资源数量:");

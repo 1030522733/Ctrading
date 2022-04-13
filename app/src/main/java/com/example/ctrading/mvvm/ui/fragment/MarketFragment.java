@@ -6,6 +6,7 @@ import android.content.Intent;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
 import com.example.ctrading.databinding.FragmentMarketBinding;
@@ -39,13 +40,7 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
     @Override
     protected void init() {
         binding.btMarketAdd.bringToFront();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false) {
-            @Override
-            public boolean canScrollVertically() {
-                //解决嵌套滑动卡顿
-                return false;
-            }
-        };
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
         rvMarketAdapter = new RvMarketAdapter(list);
         binding.rvMarket.setLayoutManager(linearLayoutManager);
         binding.rvMarket.setAdapter(rvMarketAdapter);
@@ -70,6 +65,7 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
             public void onChanged(ProjectBean projectBean) {
                 list.clear();
                 list.addAll(projectBean.getData().getProjects());
+                LogUtils.json(projectBean);
                 rvMarketAdapter.notifyDataSetChanged();
             }
         });
