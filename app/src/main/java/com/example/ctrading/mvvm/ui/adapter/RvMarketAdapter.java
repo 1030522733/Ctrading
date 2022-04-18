@@ -27,6 +27,8 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
     protected void convert(@NonNull BaseViewHolder helper, ProjectBean.DataBean.ProjectsBean item) {
         if (item.equals(mData.get(mData.size()-1))){
             helper.setGone(R.id.vvRvMarketMore,true);
+        }else {
+            helper.setGone(R.id.vvRvMarketMore,false);
         }
         if (item.getProjectType()==0){
             helper.setImageResource(R.id.ivRvMarket,R.mipmap.icon_carbon);
@@ -40,7 +42,8 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
         }
         helper.setText(R.id.tvRvMarketAddress,item.getAddress());
         helper.setText(R.id.tvRvMarketType, ParseUtils.getType(item.getResourcesType()));
-        helper.setText(R.id.tvRvMarketNunber,item.getNumber()+" 吨");
+        helper.setText(R.id.tvRvMarketNumber,item.getNumber()+" 吨");
+        helper.setText(R.id.tvRvMarketPrice,item.getPrice()+"元");
         helper.setText(R.id.tvRvMarketOrg,item.getOrganization());
     }
 }

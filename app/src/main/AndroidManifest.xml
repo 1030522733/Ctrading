@@ -23,6 +23,7 @@
         <activity android:name=".mvvm.ui.activity.LoginActvity" />
         <activity android:name=".mvvm.ui.activity.MainActivity" />
         <activity android:name=".mvvm.ui.activity.ReleaseActivity" />
+        <activity android:name=".mvvm.ui.activity.DetailsActivity" />
 
         <meta-data
             android:name="design_width_in_dp"

@@ -28,4 +28,8 @@ public interface ApiService {
     //所有订单
     @GET("/project/queryAll")
     Observable<ProjectBean> queryProjectAll();
+
+    //订单状态修改
+    @POST("/project/update")
+    Observable<ProjectBean> updateProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
 }

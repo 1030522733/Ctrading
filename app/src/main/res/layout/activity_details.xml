@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/aliceblue">
+
+        <include
+            android:id="@+id/layoutDetails"
+            layout="@layout/toolbar_custom" />
+
+        <View
+            android:id="@+id/vvDetails"
+            android:layout_width="360dp"
+            android:layout_height="560dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_bg_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDetails" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/themeColor"
+            app:layout_constraintRight_toRightOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/themeColor"
+            app:layout_constraintRight_toRightOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/themeColor"
+            app:layout_constraintRight_toRightOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/themeColor"
+            app:layout_constraintRight_toRightOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/themeColor"
+            app:layout_constraintRight_toRightOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <TextView
+            android:id="@+id/tvDetailsId0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="订单编号:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/vvDetails"
+            app:layout_constraintTop_toTopOf="@id/vvDetails" />
+
+        <TextView
+            android:id="@+id/tvDetailsId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="11111"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsId0"
+            app:layout_constraintLeft_toRightOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsId0" />
+
+        <TextView
+            android:id="@+id/tvDetailsTime0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="发布时间:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsId0" />
+
+        <TextView
+            android:id="@+id/tvDetailsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsTime0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsTime0" />
+
+        <TextView
+            android:id="@+id/tvDetailsAddress0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="资源地址:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsTime0" />
+
+        <TextView
+            android:id="@+id/tvDetailsAddress"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsAddress0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsAddress0" />
+
+        <TextView
+            android:id="@+id/tvDetailsType0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="资源类型:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsAddress0" />
+
+        <TextView
+            android:id="@+id/tvDetailsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/themeColor"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsType0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsType0" />
+
+        <TextView
+            android:id="@+id/tvDetailsNumber0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="资源数量:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsType0" />
+
+        <TextView
+            android:id="@+id/tvDetailsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsNumber0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsNumber0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPrice0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="资源价格:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsNumber0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/orange"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsPrice0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsPrice0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPrice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="元/吨"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsPrice0"
+            app:layout_constraintLeft_toRightOf="@id/tvDetailsPrice"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsPrice0" />
+
+        <TextView
+            android:id="@+id/tvDetailsOrag0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="所属公司:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsPrice0" />
+
+        <TextView
+            android:id="@+id/tvDetailsOrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="11111"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsOrag0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsOrag0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPeople0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="负责人:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsOrag0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="***********"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsPeople0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsPeople0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPhone0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="联系电话:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsPeople0" />
+
+        <TextView
+            android:id="@+id/tvDetailsPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="***********"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailsPhone0"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsPhone0" />
+
+        <TextView
+            android:id="@+id/tvDetailsDis0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="项目说明:"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId0"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailsPhone0" />
+
+        <TextView
+            android:id="@+id/tvDetailsDis"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="该用户没有填写相关烦烦烦烦烦烦烦烦烦烦烦烦烦烦烦烦烦烦说明哟"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/tvDetailsId"
+            app:layout_constraintTop_toTopOf="@id/tvDetailsDis0" />
+
+        <Button
+            android:id="@+id/btDetails"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_bg_orange"
+            android:text="我要下单"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vvDetails" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

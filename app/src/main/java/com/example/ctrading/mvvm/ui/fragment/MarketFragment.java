@@ -2,15 +2,18 @@ package com.example.ctrading.mvvm.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
 import com.example.ctrading.databinding.FragmentMarketBinding;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
+import com.example.ctrading.mvvm.ui.activity.DetailsActivity;
 import com.example.ctrading.mvvm.ui.activity.ReleaseActivity;
 import com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter;
 import com.example.ctrading.mvvm.viewmodel.FragmentViewModel;
@@ -50,6 +53,19 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
     @Override
     protected void runFlow() {
         binding.btMarketAdd.setOnClickListener(view -> startActivity(new Intent(getContext(), ReleaseActivity.class)));
+
+        rvMarketAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ProjectBean.DataBean.ProjectsBean projectBean
+                        = (ProjectBean.DataBean.ProjectsBean) adapter.getData().get(position);
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Details", projectBean);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -58,14 +74,16 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
         getProjectAll();
     }
 
-    private void getProjectAll(){
+    private void getProjectAll() {
         mViewModel.getProjectAll().observe(this, new Observer<ProjectBean>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChanged(ProjectBean projectBean) {
-                list.clear();
-                list.addAll(projectBean.getData().getProjects());
-                rvMarketAdapter.notifyDataSetChanged();
+                if (projectBean!=null && projectBean.getCode()==0){
+                    list.clear();
+                    list.addAll(projectBean.getData().getProjects());
+                    rvMarketAdapter.notifyDataSetChanged();
+                }
             }
         });
     }
