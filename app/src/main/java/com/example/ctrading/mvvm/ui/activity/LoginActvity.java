@@ -1,9 +1,7 @@
 package com.example.ctrading.mvvm.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import androidx.lifecycle.Observer;
 
@@ -13,7 +11,7 @@ import com.example.ctrading.app.global.Constant;
 import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.databinding.ActivityLoginBinding;
 import com.example.ctrading.mvvm.model.bean.UserBean;
-import com.example.ctrading.mvvm.viewmodel.LoginViewModel;
+import com.example.ctrading.mvvm.viewmodel.MainViewModel;
 
 import es.dmoral.toasty.Toasty;
 
@@ -22,7 +20,7 @@ import es.dmoral.toasty.Toasty;
  * @Data: 2022/4/6 21:52
  * @Description:
  */
-public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> {
+public class LoginActvity extends BaseAct<MainViewModel, ActivityLoginBinding> {
 
 
 
@@ -48,6 +46,10 @@ public class LoginActvity extends BaseAct<LoginViewModel, ActivityLoginBinding> 
             } else {
                 Toasty.normal(mContext, "请输入正确的手机号和密码", Toasty.LENGTH_SHORT).show();
             }
+        });
+
+        binding.btRegister.setOnClickListener(view -> {
+            startActivity(new Intent(this,RegisterActivity.class));
         });
     }
 

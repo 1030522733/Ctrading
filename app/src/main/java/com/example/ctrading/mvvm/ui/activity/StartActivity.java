@@ -1,15 +1,13 @@
 package com.example.ctrading.mvvm.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.app.global.Constant;
 import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.databinding.ActivityStartBinding;
-import com.example.ctrading.mvvm.viewmodel.StartViewModel;
+import com.example.ctrading.mvvm.viewmodel.MainViewModel;
 
 import me.wangyuwei.particleview.ParticleView;
 
@@ -18,7 +16,7 @@ import me.wangyuwei.particleview.ParticleView;
  * @Data: 2022/4/6 21:02
  * @Description:
  */
-public class StartActivity extends BaseAct<StartViewModel, ActivityStartBinding> {
+public class StartActivity extends BaseAct<MainViewModel, ActivityStartBinding> {
     @Override
     protected int getContentViewId() {
         return R.layout.activity_start;

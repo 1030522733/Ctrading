@@ -11,6 +11,10 @@
             android:icon="@mipmap/icon_order"
             android:title="我的订单" />
         <item
+            android:id="@+id/navAbout"
+            android:icon="@mipmap/icon_about"
+            android:title="关于我们" />
+        <item
             android:id="@+id/navOut"
             android:icon="@mipmap/icon_out"
             android:title="退出登录" />

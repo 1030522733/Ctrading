@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/themeColor">
+
+        <include
+            android:id="@+id/layoutRegister"
+            layout="@layout/toolbar_custom" />
+
+        <TextView
+            android:id="@+id/tvRegisterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="欢迎注册碳交易账号!"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivRegisterPhone"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/icon_username"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle" />
+
+        <TextView
+            android:id="@+id/tvRegisterPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterPhone"
+            app:layout_constraintLeft_toRightOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterPhone" />
+
+        <EditText
+            android:id="@+id/etLoginPhone"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:gravity="center"
+            android:hint="请输入11位手机号"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegisterPhone" />
+
+
+        <ImageView
+            android:id="@+id/ivRegisterPassword"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/icon_password"
+            app:layout_constraintLeft_toLeftOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toBottomOf="@id/etLoginPhone" />
+
+
+        <TextView
+            android:id="@+id/tvRegisterPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterPassword"
+            app:layout_constraintLeft_toRightOf="@id/ivRegisterPassword"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterPassword" />
+
+        <EditText
+            android:id="@+id/etRegisterPassword"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:gravity="center"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegisterPassword" />
+
+        <ImageView
+            android:id="@+id/ivRegisterName"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/icon_name"
+            app:layout_constraintLeft_toLeftOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterPassword" />
+
+
+        <TextView
+            android:id="@+id/tvRegisterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterName"
+            app:layout_constraintLeft_toRightOf="@id/ivRegisterName"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterName" />
+
+        <EditText
+            android:id="@+id/etRegisterName"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:gravity="center"
+            android:hint="请输入用户名"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegisterName" />
+
+        <ImageView
+            android:id="@+id/ivRegisterOrg"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/icon_org"
+            app:layout_constraintLeft_toLeftOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterName" />
+
+
+        <TextView
+            android:id="@+id/tvRegisterOrg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所在组织"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterOrg"
+            app:layout_constraintLeft_toRightOf="@id/ivRegisterOrg"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterOrg" />
+
+        <EditText
+            android:id="@+id/etRegisterOrg"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:gravity="center"
+            android:hint="请输入所在组织"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegisterOrg" />
+
+        <ImageView
+            android:id="@+id/ivRegisterSex"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/icon_sex"
+            app:layout_constraintLeft_toLeftOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterOrg" />
+
+        <EditText
+            android:id="@+id/etRegisterSex"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="点击选择性别"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterSex"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterSex" />
+
+        <ImageView
+            android:id="@+id/ivRegisterAddress"
+            android:layout_width="25dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/icon_reg_address"
+            app:layout_constraintLeft_toLeftOf="@id/ivRegisterPhone"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterSex" />
+
+        <EditText
+            android:id="@+id/etRegisterAddress"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_bg_input"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="点击选择地址"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivRegisterAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivRegisterAddress" />
+
+        <Button
+            android:id="@+id/btRegisterOk"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_bg_button_white"
+            android:text="注册"
+            android:textColor="@color/themeColor"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterAddress" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviRegister"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:indicatorColor="@color/white"
+            app:indicatorName="LineScalePulseOutRapidIndicator"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

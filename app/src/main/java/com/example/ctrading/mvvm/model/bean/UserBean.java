@@ -56,7 +56,7 @@ public class UserBean implements Serializable {
         private String phone;
         private String password;
         private String name;
-        private int sex;
+        private String sex;
         private String address;
         private String organization;
 
@@ -84,11 +84,11 @@ public class UserBean implements Serializable {
             this.name = name;
         }
 
-        public int getSex() {
+        public String getSex() {
             return sex;
         }
 
-        public void setSex(int sex) {
+        public void setSex(String sex) {
             this.sex = sex;
         }
 

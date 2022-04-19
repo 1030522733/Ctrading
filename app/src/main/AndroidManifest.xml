@@ -24,6 +24,7 @@
         <activity android:name=".mvvm.ui.activity.MainActivity" />
         <activity android:name=".mvvm.ui.activity.ReleaseActivity" />
         <activity android:name=".mvvm.ui.activity.DetailsActivity" />
+        <activity android:name=".mvvm.ui.activity.RegisterActivity" />
 
         <meta-data
             android:name="design_width_in_dp"

@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.R;
-import com.example.ctrading.app.base.App;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.databinding.ActivityMainBinding;
 import com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter;
@@ -107,6 +105,8 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
                     case R.id.navInfo:
                         break;
                     case R.id.navOrder:
+                        break;
+                    case R.id.navAbout:
                         break;
                     case R.id.navOut:
                         LogOutPopup logOutPopup = new LogOutPopup(mContext,0);

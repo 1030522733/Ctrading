@@ -12,7 +12,7 @@
     <string name="username">手机号</string>
     <string name="password">密码</string>
     <string name="login">登录</string>
-    <string name="register">注册</string>
+    <string name="register">去注册</string>
 
 <!-- 需求-->
     <string name="tvRelease1">我有碳减排的资源</string>
