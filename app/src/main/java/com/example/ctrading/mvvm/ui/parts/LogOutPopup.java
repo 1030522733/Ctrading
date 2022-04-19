@@ -2,11 +2,14 @@ package com.example.ctrading.mvvm.ui.parts;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Message;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.example.ctrading.R;
 import com.example.ctrading.app.global.Constant;
+import com.example.ctrading.app.global.EventBusTag;
 import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.mvvm.ui.activity.LoginActvity;
 import com.lxj.xpopup.core.BottomPopupView;
@@ -14,15 +17,25 @@ import com.lxj.xpopup.core.CenterPopupView;
 
 import static com.blankj.utilcode.util.ActivityUtils.finishOtherActivities;
 
+import org.simple.eventbus.EventBus;
+
 /**
  * @Author: JianTours
  * @Data: 2022/4/13 22:42
  * @Description:
  */
 public class LogOutPopup extends CenterPopupView {
-    public LogOutPopup(Context context) {
+
+    public LogOutPopup(Context context,int flag) {
         super(context);
+        this.flag = flag;
     }
+
+    /**
+     * 0  退出登录弹窗
+     * 1 下单确认弹窗
+     */
+    private int flag = 0;
 
     @Override
     protected int getImplLayoutId() {
@@ -32,18 +45,39 @@ public class LogOutPopup extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
+        initView(flag);
         findViewById(R.id.btPCancel).setOnClickListener(view -> {
             dismiss();
         });
-
         findViewById(R.id.btPConfirm).setOnClickListener(view -> {
-            MmkvUtils.put(Constant.IS_LOGIN,false);
-            MmkvUtils.put(Constant.MY_PHONE,"");
-            Context context = this.getContext();
-            context.startActivity(new Intent(context, LoginActvity.class));
-            //关闭所有Act
-            finishOtherActivities(LoginActvity.class);
-            dismiss();
+            switch (flag){
+                case 0:
+                    MmkvUtils.put(Constant.IS_LOGIN,false);
+                    MmkvUtils.put(Constant.MY_PHONE,"");
+                    Context context = this.getContext();
+                    context.startActivity(new Intent(context, LoginActvity.class));
+                    //关闭所有Act
+                    finishOtherActivities(LoginActvity.class);
+                    dismiss();
+                    break;
+                case 1:
+                    Message message = Message.obtain();
+                    EventBus.getDefault().post(message, EventBusTag.ORDER_OK);
+                    dismiss();
+                    break;
+                default:
+                    break;
+            }
         });
+    }
+
+    private void initView(int flag){
+        TextView textView = (TextView) findViewById(R.id.tvPLogout);
+        if (flag==0){
+            textView.setText("是否退出登录？");
+        }
+        if (flag==1){
+            textView.setText("您确认下单吗？");
+        }
     }
 }

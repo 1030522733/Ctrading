@@ -2,6 +2,7 @@ package com.example.ctrading.mvvm.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Message;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,11 +13,16 @@ import androidx.lifecycle.Observer;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
 import com.example.ctrading.app.global.Constant;
+import com.example.ctrading.app.global.EventBusTag;
 import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.app.utils.ParseUtils;
 import com.example.ctrading.databinding.ActivityDetailsBinding;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
+import com.example.ctrading.mvvm.ui.parts.LogOutPopup;
 import com.example.ctrading.mvvm.viewmodel.DetailsViewModel;
+import com.lxj.xpopup.XPopup;
+
+import org.simple.eventbus.Subscriber;
 
 import es.dmoral.toasty.Toasty;
 
@@ -68,15 +74,24 @@ public class DetailsActivity extends BaseAct<DetailsViewModel, ActivityDetailsBi
 
         binding.btDetails.setOnClickListener(view -> {
             if (!isOrder) {
-                projectsBean.setStauts(1);
-                if (!TextUtils.isEmpty(projectsBean.getPhoneA())) {
-                    projectsBean.setPhoneB(MmkvUtils.getString(Constant.MY_PHONE));
-                } else {
-                    projectsBean.setPhoneA(MmkvUtils.getString(Constant.MY_PHONE));
-                }
-                updateProject();
+                LogOutPopup logOutPopup = new LogOutPopup(mContext,1);
+                new XPopup.Builder(mContext).asCustom(logOutPopup).show();
             }
         });
+    }
+
+    /**
+     * 下单信息
+     */
+    @Subscriber(tag = EventBusTag.ORDER_OK)
+    private void orderOkMessage(Message message){
+        projectsBean.setStauts(1);
+        if (!TextUtils.isEmpty(projectsBean.getPhoneA())) {
+            projectsBean.setPhoneB(MmkvUtils.getString(Constant.MY_PHONE));
+        } else {
+            projectsBean.setPhoneA(MmkvUtils.getString(Constant.MY_PHONE));
+        }
+        updateProject();
     }
 
     private void updateProject() {

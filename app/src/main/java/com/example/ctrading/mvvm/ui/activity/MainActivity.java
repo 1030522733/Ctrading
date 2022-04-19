@@ -109,7 +109,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
                     case R.id.navOrder:
                         break;
                     case R.id.navOut:
-                        LogOutPopup logOutPopup = new LogOutPopup(mContext);
+                        LogOutPopup logOutPopup = new LogOutPopup(mContext,0);
                         new XPopup.Builder(mContext).asCustom(logOutPopup).show();
                         break;
                 }
