@@ -21,6 +21,10 @@ public interface ApiService {
     @GET("/user/query")
     Observable<UserBean> login(@Query("phone")String phone,@Query("password")String password);
 
+    //注册
+    @POST("/user/add")
+    Observable<UserBean> register(@Body UserBean.DataBean dataBean);
+
     //添加订单
     @POST("/project/add")
     Observable<ProjectBean> addProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
