@@ -1,6 +1,7 @@
 package com.example.ctrading.mvvm.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -107,6 +108,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
                     case R.id.navOrder:
                         break;
                     case R.id.navAbout:
+                        startActivity(new Intent(mContext,AboutActivity.class));
                         break;
                     case R.id.navOut:
                         LogOutPopup logOutPopup = new LogOutPopup(mContext,0);
