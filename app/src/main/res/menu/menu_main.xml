@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <group android:checkableBehavior="single">
         <item
@@ -10,6 +11,11 @@
             android:id="@+id/navOrder"
             android:icon="@mipmap/icon_order"
             android:title="我的订单" />
+        <item
+            android:id="@+id/navClear"
+            android:icon="@mipmap/icon_clear"
+            android:title="清除缓存"
+            app:actionLayout="@layout/layout_cache"/>
         <item
             android:id="@+id/navAbout"
             android:icon="@mipmap/icon_about"

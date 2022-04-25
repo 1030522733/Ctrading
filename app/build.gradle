@@ -79,6 +79,9 @@ dependencies {
     //今日头条
     implementation 'me.jessyan:autosize:1.2.1'
 
+    //郭霖大神动态权限
+    implementation 'com.guolindev.permissionx:permissionx:1.6.1'
+
     //精致Toast
     implementation 'com.github.GrenderG:Toasty:1.5.2'
     //选择器

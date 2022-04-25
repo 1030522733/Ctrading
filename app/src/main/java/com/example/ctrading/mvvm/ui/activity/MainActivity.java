@@ -2,8 +2,10 @@ package com.example.ctrading.mvvm.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,8 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
+import com.example.ctrading.app.utils.CacheUtils;
 import com.example.ctrading.databinding.ActivityMainBinding;
 import com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter;
 import com.example.ctrading.mvvm.ui.parts.LogOutPopup;
@@ -22,6 +26,8 @@ import com.example.ctrading.mvvm.viewmodel.MainViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.lxj.xpopup.XPopup;
+
+import java.io.File;
 
 /**
  * @Author: JianTours
@@ -59,6 +65,14 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
         ivToolbar = (ImageView) toolbar.getViewById(R.id.ivMain);
         tvToolbar = (TextView) toolbar.getViewById(R.id.tvMain);
         tvToolbar.setText(title[0]);
+
+        MenuItem menuItem = binding.navHome.getMenu().findItem(R.id.navClear);
+        TextView tvCache = menuItem.getActionView().findViewById(R.id.tvCacheNumber);
+        try {
+            tvCache.setText(CacheUtils.getTotalCacheSize(this));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         FrgmentAdapter frgAdapter = new FrgmentAdapter(getSupportFragmentManager(), this);
         binding.vpHome.setAdapter(frgAdapter);
@@ -102,17 +116,21 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
         binding.navHome.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.navInfo:
                         break;
                     case R.id.navOrder:
                         break;
+                    case R.id.navClear:
+                        LogOutPopup logOutPopup = new LogOutPopup(mContext, 2);
+                        new XPopup.Builder(mContext).asCustom(logOutPopup).show();
+                        break;
                     case R.id.navAbout:
-                        startActivity(new Intent(mContext,AboutActivity.class));
+                        startActivity(new Intent(mContext, AboutActivity.class));
                         break;
                     case R.id.navOut:
-                        LogOutPopup logOutPopup = new LogOutPopup(mContext,0);
-                        new XPopup.Builder(mContext).asCustom(logOutPopup).show();
+                        LogOutPopup logOutPopup2 = new LogOutPopup(mContext, 0);
+                        new XPopup.Builder(mContext).asCustom(logOutPopup2).show();
                         break;
                 }
                 //关闭DrawerLayout
@@ -126,7 +144,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
      * 自定义底部Tab
      */
     public View setTabView(Context context, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.tab_main,null);
+        View view = LayoutInflater.from(context).inflate(R.layout.tab_main, null);
         TextView textView = (TextView) view.findViewById(R.id.tvTabMain);
         ImageView imageView = (ImageView) view.findViewById(R.id.ivTabMain);
         textView.setText(navigation[position]);

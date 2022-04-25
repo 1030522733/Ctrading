@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.example.ctrading.R;
 import com.example.ctrading.app.global.Constant;
 import com.example.ctrading.app.global.EventBusTag;
+import com.example.ctrading.app.utils.CacheUtils;
 import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.mvvm.ui.activity.LoginActvity;
 import com.lxj.xpopup.core.BottomPopupView;
@@ -34,6 +35,7 @@ public class LogOutPopup extends CenterPopupView {
     /**
      * 0  退出登录弹窗
      * 1 下单确认弹窗
+     * 2  清除缓存弹窗
      */
     private int flag = 0;
 
@@ -65,6 +67,9 @@ public class LogOutPopup extends CenterPopupView {
                     EventBus.getDefault().post(message, EventBusTag.ORDER_OK);
                     dismiss();
                     break;
+                case 2:
+                    CacheUtils.clearAllCache(this.getContext());
+                    dismiss();
                 default:
                     break;
             }
@@ -78,6 +83,9 @@ public class LogOutPopup extends CenterPopupView {
         }
         if (flag==1){
             textView.setText("您确认下单吗？");
+        }
+        if (flag==2){
+            textView.setText("您确定清除缓存吗？");
         }
     }
 }
