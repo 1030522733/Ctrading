@@ -31,6 +31,8 @@ import java.util.List;
  */
 public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBinding> {
 
+    // TODO: 2022/4/26  Recyelerview布局优化：添加作者及时间字段
+
     /**
      * banner数据
      */
@@ -87,9 +89,9 @@ public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBind
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    binding.btGoTop.setBackgroundResource(R.drawable.button_bg_top_white);
+                    binding.btGoTop.setBackgroundResource(R.drawable.button_bg_top_green);
                 } else {
-                    binding.btGoTop.setBackground(null);
+                    binding.btGoTop.setBackgroundResource(R.color.transparent);
                 }
                 return false;
             }
