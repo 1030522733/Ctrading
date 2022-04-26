@@ -69,6 +69,8 @@ public class LogOutPopup extends CenterPopupView {
                     break;
                 case 2:
                     CacheUtils.clearAllCache(this.getContext());
+                    Message message2 = Message.obtain();
+                    EventBus.getDefault().post(message2, EventBusTag.CLEAR_OK);
                     dismiss();
                 default:
                     break;

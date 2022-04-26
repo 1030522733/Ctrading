@@ -11,6 +11,7 @@ import com.example.ctrading.app.base.BaseVM;
 import com.example.ctrading.app.network.BaseObserver;
 import com.example.ctrading.app.network.NetworkApi;
 import com.example.ctrading.app.network.api.ApiService;
+import com.example.ctrading.mvvm.model.bean.ArticleBean;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
 
 /**
@@ -31,6 +32,24 @@ public class FragmentViewModel extends BaseVM{
             @Override
             public void onSucceed(ProjectBean projectBean) {
                 mutableLiveData.setValue(projectBean);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                mutableLiveData.setValue(null);
+            }
+        }));
+        return mutableLiveData;
+    }
+
+    @SuppressLint("CheckResult")
+    public MutableLiveData<ArticleBean> getAllArticle(){
+        MutableLiveData<ArticleBean> mutableLiveData = new MutableLiveData<>();
+        ApiService apiService = NetworkApi.createService(ApiService.class);
+        apiService.queryArticle().compose(NetworkApi.applySchedulers(new BaseObserver<ArticleBean>() {
+            @Override
+            public void onSucceed(ArticleBean articleBean) {
+                mutableLiveData.setValue(articleBean);
             }
 
             @Override

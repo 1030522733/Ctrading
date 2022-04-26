@@ -1,6 +1,7 @@
 package com.example.ctrading.app.network.api;
 
 
+import com.example.ctrading.mvvm.model.bean.ArticleBean;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
 import com.example.ctrading.mvvm.model.bean.UserBean;
 
@@ -36,4 +37,8 @@ public interface ApiService {
     //订单状态修改
     @POST("/project/update")
     Observable<ProjectBean> updateProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
+
+    //查找所有文章
+    @GET("/article/all")
+    Observable<ArticleBean> queryArticle();
 }

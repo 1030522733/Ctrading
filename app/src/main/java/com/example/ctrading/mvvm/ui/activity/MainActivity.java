@@ -3,6 +3,7 @@ package com.example.ctrading.mvvm.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.blankj.utilcode.util.LogUtils;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
+import com.example.ctrading.app.global.EventBusTag;
 import com.example.ctrading.app.utils.CacheUtils;
 import com.example.ctrading.databinding.ActivityMainBinding;
 import com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter;
@@ -26,6 +28,8 @@ import com.example.ctrading.mvvm.viewmodel.MainViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.lxj.xpopup.XPopup;
+
+import org.simple.eventbus.Subscriber;
 
 import java.io.File;
 
@@ -53,6 +57,10 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
     private ImageView ivToolbar;
     private TextView tvToolbar;
 
+    /**
+     *头部
+     */
+    private TextView tvCache;
 
     @Override
     protected int getContentViewId() {
@@ -67,7 +75,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
         tvToolbar.setText(title[0]);
 
         MenuItem menuItem = binding.navHome.getMenu().findItem(R.id.navClear);
-        TextView tvCache = menuItem.getActionView().findViewById(R.id.tvCacheNumber);
+        tvCache = menuItem.getActionView().findViewById(R.id.tvCacheNumber);
         try {
             tvCache.setText(CacheUtils.getTotalCacheSize(this));
         }catch (Exception e){
@@ -151,5 +159,24 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
         textView.setTextColor(binding.tbHome.getTabTextColors());
         imageView.setImageResource(navigationIcons[position]);
         return view;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            tvCache.setText(CacheUtils.getTotalCacheSize(this));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Subscriber(tag = EventBusTag.CLEAR_OK)
+    public void clearOk(Message message){
+        try {
+            tvCache.setText(CacheUtils.getTotalCacheSize(this));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

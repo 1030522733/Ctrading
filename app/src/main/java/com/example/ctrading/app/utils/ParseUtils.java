@@ -48,4 +48,21 @@ public class ParseUtils {
             return "其他";
         }
     }
+
+    /**
+     * 返回文章类型
+     */
+    public static String getArticleType(int type) {
+        if (type == 0) {
+            return "热点速递";
+        } else if (type == 1) {
+            return "地方政策";
+        } else if (type == 2) {
+            return "减排技术";
+        }else if (type==3){
+            return "科普";
+        } else {
+            return "其他";
+        }
+    }
 }

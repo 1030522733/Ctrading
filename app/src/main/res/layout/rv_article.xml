@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRvArticle"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <View
+        android:id="@+id/vvRvArticle"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/shape_bg_button_white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRvArticleTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_bg_top"
+        android:text="置顶"
+        android:textColor="@color/crimson"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toLeftOf="@id/vvRvArticle"
+        app:layout_constraintTop_toTopOf="@id/vvRvArticle" />
+
+    <TextView
+        android:id="@+id/tvRvArticleType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="分类"
+        app:layout_constraintTop_toTopOf="@id/vvRvArticle"
+        app:layout_constraintLeft_toRightOf="@id/tvRvArticleTop" />
+
+    <TextView
+        android:id="@+id/tvRvArticleTitle"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/tvRvArticleType"
+        app:layout_constraintLeft_toLeftOf="@id/vvRvArticle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
