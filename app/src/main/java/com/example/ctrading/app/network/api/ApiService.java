@@ -26,6 +26,14 @@ public interface ApiService {
     @POST("/user/add")
     Observable<UserBean> register(@Body UserBean.DataBean dataBean);
 
+    //查询个人信息
+    @GET("/user/query/phone")
+    Observable<UserBean> getUser(@Query("phone")String phone);
+
+    //个人信息修改
+    @POST("/user/update")
+    Observable<UserBean> updateUser(@Body UserBean.DataBean user);
+
     //添加订单
     @POST("/project/add")
     Observable<ProjectBean> addProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);

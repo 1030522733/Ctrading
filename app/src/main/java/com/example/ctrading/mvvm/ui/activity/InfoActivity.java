@@ -2,21 +2,28 @@ package com.example.ctrading.mvvm.ui.activity;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.Observer;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseAct;
+import com.example.ctrading.app.global.Constant;
+import com.example.ctrading.app.utils.MmkvUtils;
 import com.example.ctrading.databinding.ActivityInfoBinding;
 import com.example.ctrading.mvvm.model.bean.JsonBean;
+import com.example.ctrading.mvvm.model.bean.UserBean;
+import com.example.ctrading.mvvm.ui.parts.LogOutPopup;
 import com.example.ctrading.mvvm.viewmodel.MainViewModel;
 import com.google.gson.Gson;
+import com.lxj.xpopup.XPopup;
 
 import org.json.JSONArray;
 
@@ -25,6 +32,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * @Author: JianTours
@@ -37,6 +46,11 @@ public class InfoActivity extends BaseAct<MainViewModel, ActivityInfoBinding> {
      * 是否正处于编辑状态
      */
     private boolean isEdit = false;
+
+    /**
+     * 数据请求完成
+     */
+    private boolean isComplete = false;
 
     /**
      * 数据
@@ -56,22 +70,50 @@ public class InfoActivity extends BaseAct<MainViewModel, ActivityInfoBinding> {
         ConstraintLayout toolbar = (ConstraintLayout) binding.layoutInfo;
         ImageView ivBack = (ImageView) toolbar.getViewById(R.id.ivCustom);
         TextView textView = (TextView) toolbar.getViewById(R.id.tvCustom);
-        ivBack.setOnClickListener(view -> finish());
         textView.setText("个人资料");
+        ivBack.setOnClickListener(view -> {
+            if (isEdit){
+                LogOutPopup logOutPopup = new LogOutPopup(mContext, 3);
+                new XPopup.Builder(mContext).asCustom(logOutPopup).show();
+            }else {
+                finish();
+            }
+        });
 
         initData();
         banEdit();
+        getUser(MmkvUtils.getString(Constant.MY_PHONE));
     }
 
     @Override
     protected void runFlow() {
         binding.btInfo.setOnClickListener(view -> {
-            if (isEdit){
-                isEdit = false;
-                banEdit();
-            }else {
-                isEdit = true;
-                allowEdit();
+            if (isComplete) {
+                if (isEdit) {
+                    UserBean.DataBean user = new UserBean.DataBean();
+                    String name = binding.tvInfoName.getText().toString();
+                    String sex = binding.tvInfoSex.getText().toString();
+                    String org = binding.tvInfoOrg.getText().toString();
+                    String address = binding.tvInfoAddress.getText().toString();
+                    user.setPhone(MmkvUtils.getString(Constant.MY_PHONE));
+                    user.setPassword(MmkvUtils.getString(Constant.MY_PASSWORD));
+                    user.setName(name);
+                    user.setSex(sex);
+                    user.setOrganization(org);
+                    user.setAddress(address);
+                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(org)) {
+                        updataUser(user);
+                        isEdit = false;
+                        banEdit();
+                    }else {
+                        Toasty.normal(mContext,"请完整填写信息",Toasty.LENGTH_SHORT).show();
+                    }
+                } else {
+                    isEdit = true;
+                    allowEdit();
+                }
+            } else {
+                Toasty.error(mContext, "数据尚未加载完成", Toasty.LENGTH_SHORT).show();
             }
         });
 
@@ -117,10 +159,46 @@ public class InfoActivity extends BaseAct<MainViewModel, ActivityInfoBinding> {
         });
     }
 
+    public void getUser(String phone) {
+        mViewModel.getUser(phone).observe(this, new Observer<UserBean>() {
+            @Override
+            public void onChanged(UserBean userBean) {
+                if (userBean.getCode() == 0 && userBean.getData() != null) {
+                    binding.tvInfoPhone.setText(userBean.getData().getPhone());
+                    binding.tvInfoName.setText(userBean.getData().getName());
+                    binding.tvInfoSex.setText(userBean.getData().getSex());
+                    binding.tvInfoOrg.setText(userBean.getData().getOrganization());
+                    binding.tvInfoAddress.setText(userBean.getData().getAddress());
+                    isComplete = true;
+                } else {
+                    Toasty.error(mContext, "个人信息查询失败，请退出页面重试");
+                }
+            }
+        });
+    }
+
+    public void updataUser(UserBean.DataBean user) {
+        mViewModel.updateUser(user).observe(this, new Observer<UserBean>() {
+            @Override
+            public void onChanged(UserBean userBean) {
+                if (userBean.getCode() == 0 && userBean.getData() != null) {
+                    binding.tvInfoPhone.setText(userBean.getData().getPhone());
+                    binding.tvInfoName.setText(userBean.getData().getName());
+                    binding.tvInfoSex.setText(userBean.getData().getSex());
+                    binding.tvInfoOrg.setText(userBean.getData().getOrganization());
+                    binding.tvInfoAddress.setText(userBean.getData().getAddress());
+                    Toasty.success(mContext, "信息修改成功", Toasty.LENGTH_SHORT).show();
+                } else {
+                    Toasty.error(mContext, "信息修改失败，请重试", Toasty.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     /**
-     *允许编辑
+     * 允许编辑
      */
-    private void allowEdit(){
+    private void allowEdit() {
         binding.tvInfoName.setFocusable(true);
         binding.tvInfoName.setFocusableInTouchMode(true);
         binding.tvInfoSex.setEnabled(true);
@@ -131,9 +209,9 @@ public class InfoActivity extends BaseAct<MainViewModel, ActivityInfoBinding> {
     }
 
     /**
-     *禁止编辑
+     * 禁止编辑
      */
-    private void banEdit(){
+    private void banEdit() {
         binding.tvInfoName.setFocusable(false);
         binding.tvInfoName.setFocusableInTouchMode(false);
         binding.tvInfoSex.setEnabled(false);

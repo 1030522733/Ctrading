@@ -11,6 +11,7 @@ import com.example.ctrading.app.base.BaseVM;
 import com.example.ctrading.app.network.BaseObserver;
 import com.example.ctrading.app.network.NetworkApi;
 import com.example.ctrading.app.network.api.ApiService;
+import com.example.ctrading.mvvm.model.bean.ProjectBean;
 import com.example.ctrading.mvvm.model.bean.UserBean;
 
 /**
@@ -54,6 +55,41 @@ public class MainViewModel extends BaseVM {
             @Override
             public void onFailure(Throwable e) {
                 LogUtils.d(e);
+            }
+        }));
+        return mutableLiveData;
+    }
+
+    @SuppressLint("CheckResult")
+    public MutableLiveData<UserBean> getUser(String phone) {
+        MutableLiveData<UserBean> mutableLiveData = new MutableLiveData<>();
+        ApiService apiService = NetworkApi.createService(ApiService.class);
+        apiService.getUser(phone).compose(NetworkApi.applySchedulers(new BaseObserver<UserBean>() {
+            @Override
+            public void onSucceed(UserBean userBean) {
+                mutableLiveData.setValue(userBean);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                LogUtils.d(e);
+            }
+        }));
+        return mutableLiveData;
+    }
+
+    @SuppressLint("CheckResult")
+    public MutableLiveData<UserBean> updateUser(UserBean.DataBean dataBean){
+        MutableLiveData<UserBean> mutableLiveData = new MutableLiveData<>();
+        ApiService apiService = NetworkApi.createService(ApiService.class);
+        apiService.updateUser(dataBean).compose(NetworkApi.applySchedulers(new BaseObserver<UserBean>() {
+            @Override
+            public void onSucceed(UserBean userBean) {
+                mutableLiveData.setValue(userBean);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
             }
         }));
         return mutableLiveData;

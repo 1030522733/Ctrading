@@ -45,7 +45,7 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
         helper.setText(R.id.tvRvMarketAddress,item.getAddress());
         helper.setText(R.id.tvRvMarketType, ParseUtils.getType(item.getResourcesType()));
         helper.setText(R.id.tvRvMarketNumber,item.getNumber()+" 吨");
-        helper.setText(R.id.tvRvMarketPrice,item.getPrice()+"元");
+        helper.setText(R.id.tvRvMarketPrice,item.getPrice()+"元/吨");
         helper.setText(R.id.tvRvMarketOrg,item.getOrganization());
     }
 }

@@ -137,7 +137,8 @@ public class RegisterActivity extends BaseAct<MainViewModel, ActivityRegisterBin
                 binding.aviRegister.hide();
                 if (userBean.getCode() == 0) {
                     Toasty.success(mContext, "注册成功,已为您自动登录", Toasty.LENGTH_SHORT).show();
-                    MmkvUtils.put(Constant.MY_PHONE, binding.etRegisterPhone.getText());
+                    MmkvUtils.put(Constant.MY_PHONE, userBean.getData().getPhone());
+                    MmkvUtils.put(Constant.MY_PASSWORD,userBean.getData().getPassword());
                     startActivity(new Intent(mContext, MainActivity.class));
                     finish();
                 } else {

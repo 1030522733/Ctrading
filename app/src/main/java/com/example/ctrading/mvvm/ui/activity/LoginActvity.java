@@ -65,6 +65,7 @@ public class LoginActvity extends BaseAct<MainViewModel, ActivityLoginBinding> {
                         Toasty.success(mContext, "登录成功", Toasty.LENGTH_SHORT).show();
                         MmkvUtils.put(Constant.IS_LOGIN,true);
                         MmkvUtils.put(Constant.MY_PHONE,userBean.getData().getPhone());
+                        MmkvUtils.put(Constant.MY_PASSWORD,userBean.getData().getPassword());
                         startActivity(new Intent(mContext, MainActivity.class));
                         finish();
                     } else {

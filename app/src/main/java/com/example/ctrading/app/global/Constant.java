@@ -18,4 +18,9 @@ public class Constant {
      * 手机号
      */
     public final static String MY_PHONE = "my_phone";
+
+    /**
+     * 密码
+     */
+    public final static String MY_PASSWORD = "my_password";
 }
