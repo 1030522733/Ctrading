@@ -36,9 +36,11 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
         }else if (item.getProjectType() == 1){
             helper.setImageResource(R.id.ivRvMarket,R.mipmap.icon_sale);
             helper.setText(R.id.tvRvMarketNumber1,"出售数量:");
+            helper.setText(R.id.tvRvMarketPrice1,"出售价格");
         }else {
             helper.setImageResource(R.id.ivRvMarket,R.mipmap.icon_buy);
             helper.setText(R.id.tvRvMarketNumber1,"购买数量:");
+            helper.setText(R.id.tvRvMarketPrice1,"购买价格");
         }
         helper.setText(R.id.tvRvMarketAddress,item.getAddress());
         helper.setText(R.id.tvRvMarketType, ParseUtils.getType(item.getResourcesType()));

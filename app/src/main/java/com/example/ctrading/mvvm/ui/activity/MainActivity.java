@@ -126,6 +126,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navInfo:
+                        startActivity(new Intent(mContext,InfoActivity.class));
                         break;
                     case R.id.navOrder:
                         break;

@@ -40,6 +40,16 @@ public class DetailsActivity extends BaseAct<DetailsViewModel, ActivityDetailsBi
      */
     boolean isOrder = false;
 
+    /**
+     * 是否为订单主人
+     */
+    boolean isMaster = false;
+
+    /**
+     * 下单电话
+     */
+    private String phone;
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_details;
@@ -62,19 +72,29 @@ public class DetailsActivity extends BaseAct<DetailsViewModel, ActivityDetailsBi
         binding.tvDetailsNumber.setText(projectsBean.getNumber() + "吨");
         binding.tvDetailsPrice.setText(projectsBean.getPrice() + "");
         binding.tvDetailsDis.setText(projectsBean.getDetails());
+        if (!TextUtils.isEmpty(projectsBean.getPhoneA())) {
+            phone = projectsBean.getPhoneA();
+        } else {
+            phone = projectsBean.getPhoneB();
+        }
+        if (phone.equals(MmkvUtils.getString(Constant.MY_PHONE))){
+            isMaster = true;
+            binding.tvDetailsPhone.setText(phone);
+            binding.tvDetailsPeople.setText(projectsBean.getPeople());
+        }
     }
 
     @Override
     protected void runFlow() {
         binding.vvDetails.setOnClickListener(view -> {
-            if (!isOrder) {
-                Toasty.warning(this, "下单后才能查看负责人和联系电话哟", Toasty.LENGTH_SHORT).show();
+            if (!isOrder && !isMaster) {
+                Toasty.warning(this, "下单后才能查看负责人和电话", Toasty.LENGTH_SHORT).show();
             }
         });
 
         binding.btDetails.setOnClickListener(view -> {
-            if (!isOrder) {
-                LogOutPopup logOutPopup = new LogOutPopup(mContext,1);
+            if (!isOrder && !isMaster) {
+                LogOutPopup logOutPopup = new LogOutPopup(mContext, 1);
                 new XPopup.Builder(mContext).asCustom(logOutPopup).show();
             }
         });
@@ -84,7 +104,7 @@ public class DetailsActivity extends BaseAct<DetailsViewModel, ActivityDetailsBi
      * 下单信息
      */
     @Subscriber(tag = EventBusTag.ORDER_OK)
-    private void orderOkMessage(Message message){
+    private void orderOkMessage(Message message) {
         projectsBean.setStauts(1);
         if (!TextUtils.isEmpty(projectsBean.getPhoneA())) {
             projectsBean.setPhoneB(MmkvUtils.getString(Constant.MY_PHONE));
@@ -103,12 +123,6 @@ public class DetailsActivity extends BaseAct<DetailsViewModel, ActivityDetailsBi
                     Toasty.success(mContext, "下单成功", Toasty.LENGTH_SHORT).show();
                     isOrder = true;
                     binding.tvDetailsPeople.setText(projectsBean.getPeople());
-                    String phone = "";
-                    if (!TextUtils.isEmpty(projectsBean.getPhoneA())) {
-                        phone = projectsBean.getPhoneA();
-                    } else {
-                        phone = projectsBean.getPhoneB();
-                    }
                     binding.tvDetailsPhone.setText(phone);
                     binding.btDetails.setText("您已成功下单");
                     binding.btDetails.setTextColor(R.color.gray);
