@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/aliceblue">
+
+    <View
+        android:id="@+id/vvRvOrder"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_bg_button_white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvOrderOrg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:text="组织"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/vvRvOrder"
+        app:layout_constraintTop_toTopOf="@id/vvRvOrder" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginRight="2dp"
+        android:src="@mipmap/icon_org"
+        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
+        app:layout_constraintRight_toLeftOf="@id/tvOrderOrg"
+        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="2dp"
+        android:src="@mipmap/icon_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
+        app:layout_constraintLeft_toRightOf="@id/tvOrderOrg"
+        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+
+    <TextView
+        android:id="@+id/tvOrderStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:text="交易成功"
+        android:textColor="@color/orange"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
+        app:layout_constraintRight_toRightOf="@id/vvRvOrder"
+        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivOrderType"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/img_tree0"
+        app:layout_constraintLeft_toLeftOf="@id/vvRvOrder"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderOrg"
+        app:shapeAppearanceOverlay="@style/circleImageStyle" />
+
+    <!--    <View-->
+    <!--        android:id="@+id/vvRvOrderLast"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="90dp"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/vvRvOrder" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

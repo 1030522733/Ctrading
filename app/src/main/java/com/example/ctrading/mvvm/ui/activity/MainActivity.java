@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
@@ -127,8 +128,6 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
                 switch (item.getItemId()) {
                     case R.id.navInfo:
                         startActivity(new Intent(mContext,InfoActivity.class));
-                        break;
-                    case R.id.navOrder:
                         break;
                     case R.id.navClear:
                         LogOutPopup logOutPopup = new LogOutPopup(mContext, 2);

@@ -8,10 +8,6 @@
             android:icon="@mipmap/icon_info"
             android:title="个人资料" />
         <item
-            android:id="@+id/navOrder"
-            android:icon="@mipmap/icon_order"
-            android:title="我的订单" />
-        <item
             android:id="@+id/navClear"
             android:icon="@mipmap/icon_clear"
             android:title="清除缓存"

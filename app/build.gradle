@@ -90,4 +90,6 @@ dependencies {
     implementation 'org.simple:androideventbus:1.0.5.1'
     //XPopUp
     implementation 'com.github.li-xiaojun:XPopup:2.4.1'
+    //圆形头像类
+    implementation 'com.google.android.material:material:1.2.0'
 }
