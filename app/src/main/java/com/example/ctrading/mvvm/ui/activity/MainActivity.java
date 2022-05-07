@@ -85,7 +85,7 @@ public class MainActivity extends BaseAct<MainViewModel, ActivityMainBinding> {
 
         FrgmentAdapter frgAdapter = new FrgmentAdapter(getSupportFragmentManager(), this);
         binding.vpHome.setAdapter(frgAdapter);
-        binding.vpHome.setOffscreenPageLimit(1);
+        binding.vpHome.setOffscreenPageLimit(2);
         binding.tbHome.setupWithViewPager(binding.vpHome);
     }
 

@@ -38,6 +38,10 @@ public interface ApiService {
     @POST("/project/add")
     Observable<ProjectBean> addProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
 
+    //查询个人订单
+    @GET("/project/query")
+    Observable<ProjectBean> queryProject(@Query("phone") String phone);
+
     //所有订单
     @GET("/project/queryAll")
     Observable<ProjectBean> queryProjectAll();

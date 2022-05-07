@@ -105,19 +105,12 @@ public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBind
             }
         });
 
-        rvArticleAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                ArticleBean.DataBean.Bean bean = (ArticleBean.DataBean.Bean) adapter.getItem(position);
-                Intent intent = new Intent(App.getContext(), WebActivity.class);
-                switch (view.getId()){
-                    case R.id.layoutRvArticle:
-                        intent.putExtra("url",bean.getUrl());
-                        intent.putExtra("title",bean.getTitle());
-                        startActivity(intent);
-                        break;
-                }
-            }
+        rvArticleAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ArticleBean.DataBean.Bean bean = (ArticleBean.DataBean.Bean) adapter.getItem(position);
+            Intent intent = new Intent(App.getContext(), WebActivity.class);
+            intent.putExtra("url", bean.getUrl());
+            intent.putExtra("title", bean.getTitle());
+            startActivity(intent);
         });
     }
 

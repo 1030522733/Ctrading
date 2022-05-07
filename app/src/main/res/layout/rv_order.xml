@@ -15,7 +15,7 @@
 
 
     <TextView
-        android:id="@+id/tvOrderOrg"
+        android:id="@+id/tvRvOrderOrg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -31,18 +31,18 @@
         android:layout_height="12dp"
         android:layout_marginRight="2dp"
         android:src="@mipmap/icon_org"
-        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
-        app:layout_constraintRight_toLeftOf="@id/tvOrderOrg"
-        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+        app:layout_constraintBottom_toBottomOf="@id/tvRvOrderOrg"
+        app:layout_constraintRight_toLeftOf="@id/tvRvOrderOrg"
+        app:layout_constraintTop_toTopOf="@id/tvRvOrderOrg" />
 
     <ImageView
         android:layout_width="15dp"
         android:layout_height="10dp"
         android:layout_marginLeft="2dp"
         android:src="@mipmap/icon_arrow_right"
-        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
-        app:layout_constraintLeft_toRightOf="@id/tvOrderOrg"
-        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+        app:layout_constraintBottom_toBottomOf="@id/tvRvOrderOrg"
+        app:layout_constraintLeft_toRightOf="@id/tvRvOrderOrg"
+        app:layout_constraintTop_toTopOf="@id/tvRvOrderOrg" />
 
     <TextView
         android:id="@+id/tvOrderStatus"
@@ -52,9 +52,9 @@
         android:text="交易成功"
         android:textColor="@color/orange"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/tvOrderOrg"
+        app:layout_constraintBottom_toBottomOf="@id/tvRvOrderOrg"
         app:layout_constraintRight_toRightOf="@id/vvRvOrder"
-        app:layout_constraintTop_toTopOf="@id/tvOrderOrg" />
+        app:layout_constraintTop_toTopOf="@id/tvRvOrderOrg" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivOrderType"
@@ -64,7 +64,7 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/img_it0"
         app:layout_constraintLeft_toLeftOf="@id/vvRvOrder"
-        app:layout_constraintTop_toBottomOf="@id/tvOrderOrg"
+        app:layout_constraintTop_toBottomOf="@id/tvRvOrderOrg"
         app:shapeAppearanceOverlay="@style/circleImageStyle" />
 
     <TextView
@@ -126,6 +126,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvRvOrderPrice" />
 
     <TextView
+        android:id="@+id/tvRvOrderMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="预计收益:588"
@@ -155,7 +156,8 @@
         android:text="删除订单"
         android:textColor="@color/black"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@id/btRvOrderMatch"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/vvRvOrder"
         app:layout_constraintRight_toLeftOf="@id/btRvOrderMatch" />
 
     <Button
@@ -167,7 +169,8 @@
         android:text="再次下单"
         android:textColor="@color/black"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@id/btRvOrderMatch"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/vvRvOrder"
         app:layout_constraintRight_toLeftOf="@id/btRvOrderDel" />
 
     <View

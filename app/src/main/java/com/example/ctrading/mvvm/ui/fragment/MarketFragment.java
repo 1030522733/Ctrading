@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
@@ -60,18 +61,15 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
     @Override
     protected void runFlow() {
         binding.btMarketAdd.setOnClickListener(view -> startActivity(new Intent(getContext(), ReleaseActivity.class)));
-
-        rvMarketAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                ProjectBean.DataBean.ProjectsBean projectBean
-                        = (ProjectBean.DataBean.ProjectsBean) adapter.getData().get(position);
-                Intent intent = new Intent(getContext(), DetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("Details", projectBean);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
+        
+        rvMarketAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ProjectBean.DataBean.ProjectsBean projectBean
+                    = (ProjectBean.DataBean.ProjectsBean) adapter.getData().get(position);
+            Intent intent = new Intent(getContext(), DetailsActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("Details", projectBean);
+            intent.putExtras(bundle);
+            startActivity(intent);
         });
     }
 

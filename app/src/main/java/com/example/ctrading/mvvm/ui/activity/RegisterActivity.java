@@ -139,6 +139,7 @@ public class RegisterActivity extends BaseAct<MainViewModel, ActivityRegisterBin
                     Toasty.success(mContext, "注册成功,已为您自动登录", Toasty.LENGTH_SHORT).show();
                     MmkvUtils.put(Constant.MY_PHONE, userBean.getData().getPhone());
                     MmkvUtils.put(Constant.MY_PASSWORD,userBean.getData().getPassword());
+                    MmkvUtils.put(Constant.IS_LOGIN,true);
                     startActivity(new Intent(mContext, MainActivity.class));
                     finish();
                 } else {
