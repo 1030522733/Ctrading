@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
 import com.example.ctrading.databinding.FragmentMarketBinding;
@@ -16,6 +18,7 @@ import com.example.ctrading.mvvm.model.bean.ProjectBean;
 import com.example.ctrading.mvvm.ui.activity.DetailsActivity;
 import com.example.ctrading.mvvm.ui.activity.ReleaseActivity;
 import com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter;
+import com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration;
 import com.example.ctrading.mvvm.viewmodel.FragmentViewModel;
 
 import java.util.ArrayList;
@@ -45,7 +48,11 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
         binding.btMarketAdd.bringToFront();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
         rvMarketAdapter = new RvMarketAdapter(list);
+        rvMarketAdapter.setAnimationFirstOnly(false);
+        rvMarketAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn);
         binding.rvMarket.setLayoutManager(linearLayoutManager);
+        binding.rvMarket.setHasFixedSize(true);
+        binding.rvMarket.addItemDecoration(new SpaceItemDecoration(2));
         binding.rvMarket.setAdapter(rvMarketAdapter);
         getProjectAll();
     }
@@ -54,9 +61,9 @@ public class MarketFragment extends BaseFrg<FragmentViewModel, FragmentMarketBin
     protected void runFlow() {
         binding.btMarketAdd.setOnClickListener(view -> startActivity(new Intent(getContext(), ReleaseActivity.class)));
 
-        rvMarketAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        rvMarketAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 ProjectBean.DataBean.ProjectsBean projectBean
                         = (ProjectBean.DataBean.ProjectsBean) adapter.getData().get(position);
                 Intent intent = new Intent(getContext(), DetailsActivity.class);

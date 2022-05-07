@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.ctrading.R;
 import com.example.ctrading.app.utils.ParseUtils;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
@@ -25,10 +25,10 @@ public class RvMarketAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Proje
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, ProjectBean.DataBean.ProjectsBean item) {
-        if (item.equals(mData.get(mData.size()-1))){
-            helper.setGone(R.id.vvRvMarketMore,true);
-        }else {
+        if (item.equals(getData().get(getData().size()-1))){
             helper.setGone(R.id.vvRvMarketMore,false);
+        }else {
+            helper.setGone(R.id.vvRvMarketMore,true);
         }
         if (item.getProjectType()==0){
             helper.setImageResource(R.id.ivRvMarket,R.mipmap.icon_carbon);

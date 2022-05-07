@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.App;
 import com.example.ctrading.app.base.BaseFrg;
@@ -16,6 +18,7 @@ import com.example.ctrading.databinding.FragmentSquareBinding;
 import com.example.ctrading.mvvm.model.bean.ArticleBean;
 import com.example.ctrading.mvvm.ui.activity.WebActivity;
 import com.example.ctrading.mvvm.ui.adapter.RvArticleAdapter;
+import com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration;
 import com.example.ctrading.mvvm.viewmodel.FragmentViewModel;
 import com.youth.banner.adapter.BannerImageAdapter;
 import com.youth.banner.holder.BannerImageHolder;
@@ -73,7 +76,11 @@ public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBind
             }
         };
         rvArticleAdapter = new RvArticleAdapter(list);
+        rvArticleAdapter.setAnimationFirstOnly(false);
+        rvArticleAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn);
         binding.rvArticle.setLayoutManager(linearLayoutManager);
+        binding.rvArticle.setHasFixedSize(true);
+        binding.rvArticle.addItemDecoration(new SpaceItemDecoration(2));
         binding.rvArticle.setAdapter(rvArticleAdapter);
         getAll();
 
@@ -85,6 +92,7 @@ public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBind
     protected void runFlow() {
 
         binding.btGoTop.setOnClickListener(view -> binding.svSquare.smoothScrollTo(0, 0));
+
         binding.btGoTop.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -97,9 +105,9 @@ public class SquareFrgment extends BaseFrg<FragmentViewModel, FragmentSquareBind
             }
         });
 
-        rvArticleAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        rvArticleAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
             @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onItemChildClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 ArticleBean.DataBean.Bean bean = (ArticleBean.DataBean.Bean) adapter.getItem(position);
                 Intent intent = new Intent(App.getContext(), WebActivity.class);
                 switch (view.getId()){

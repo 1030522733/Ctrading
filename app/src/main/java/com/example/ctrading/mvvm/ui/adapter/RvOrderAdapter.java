@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.ctrading.R;
 
 import java.util.List;
@@ -21,6 +21,10 @@ public class RvOrderAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     @Override
     protected void convert( BaseViewHolder helper, String item) {
-
+        if (item.equals(getData().get(getData().size()-1))){
+            helper.setGone(R.id.vvRvOrderMore,false);
+        }else {
+            helper.setGone(R.id.vvRvOrderMore,true);
+        }
     }
 }

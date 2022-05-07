@@ -2,12 +2,12 @@ package com.example.ctrading.mvvm.ui.fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.ctrading.R;
 import com.example.ctrading.app.base.BaseFrg;
 import com.example.ctrading.databinding.FragmentOrderBinding;
-import com.example.ctrading.mvvm.model.bean.ProjectBean;
-import com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter;
 import com.example.ctrading.mvvm.ui.adapter.RvOrderAdapter;
+import com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration;
 import com.example.ctrading.mvvm.viewmodel.OrderViewModel;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class OrderFragment extends BaseFrg<OrderViewModel, FragmentOrderBinding>
     List<String> list = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
 
-    public OrderFragment(int flag){
+    public OrderFragment(int flag) {
         this.flag = flag;
     }
 
@@ -43,10 +43,15 @@ public class OrderFragment extends BaseFrg<OrderViewModel, FragmentOrderBinding>
         list.add("d");
         list.add("d");
         list.add("d");
-        list.add("d");
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
+        list.add("f");
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(),
+                LinearLayoutManager.VERTICAL, false);
         rvOrderAdapter = new RvOrderAdapter(list);
+        rvOrderAdapter.setAnimationFirstOnly(false);
+        rvOrderAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn);
         binding.rvOrder.setLayoutManager(linearLayoutManager);
+        binding.rvOrder.setHasFixedSize(true);
+        binding.rvOrder.addItemDecoration(new SpaceItemDecoration(2));
         binding.rvOrder.setAdapter(rvOrderAdapter);
     }
 

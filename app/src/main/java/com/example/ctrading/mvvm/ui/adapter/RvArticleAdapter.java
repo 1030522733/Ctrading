@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.ctrading.R;
 import com.example.ctrading.app.utils.ParseUtils;
 import com.example.ctrading.mvvm.model.bean.ArticleBean;
@@ -30,8 +30,12 @@ public class RvArticleAdapter extends BaseQuickAdapter<ArticleBean.DataBean.Bean
         }else {
             helper.setGone(R.id.tvRvArticleTop,false);
         }
+        if (item.equals(getData().get(getData().size()-1))){
+            helper.setGone(R.id.vvRvArticleMore,false);
+        }else {
+            helper.setGone(R.id.vvRvArticleMore,true);
+        }
         helper.setText(R.id.tvRvArticleType, ParseUtils.getArticleType(item.getType()));
         helper.setText(R.id.tvRvArticleTitle,item.getTitle().toString());
-        helper.addOnClickListener(R.id.layoutRvArticle);
     }
 }

@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.ctrading.R;
 import com.example.ctrading.app.global.Constant;
 import com.example.ctrading.mvvm.ui.activity.ReleaseActivity;

@@ -21,8 +21,10 @@
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/select_match.xml" value="0.15231481481481482" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/select_square.xml" value="0.15231481481481482" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape.xml" value="0.20260416666666667" />
+        <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_bg_black.xml" value="0.18472222222222223" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_bg_button_white.xml" value="0.12824074074074074" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_bg_input.xml" value="0.1935185185185185" />
+        <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_bg_orange.xml" value="0.18472222222222223" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_bg_top.xml" value="0.14351851851851852" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/shape_edittext.xml" value="0.17314814814814813" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/drawable/tab_navigation.xml" value="0.17314814814814813" />
@@ -48,9 +50,10 @@
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/popup_logout.xml" value="0.14814814814814814" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/popupwindow_logout.xml" value="0.14814814814814814" />
-        <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/rv_article.xml" value="0.3216145833333333" />
+        <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/rv_article.xml" value="0.176" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/rv_market.xml" value="0.264" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/rv_order.xml" value="0.176" />
+        <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/shape_bg_orange.xml" value="0.17037037037037037" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/tab_home.xml" value="0.13657407407407407" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/tab_main.xml" value="0.14814814814814814" />
         <entry key="..\:/Android Project/Person/Ctrading/app/src/main/res/layout/tab_release.xml" value="0.13194444444444445" />

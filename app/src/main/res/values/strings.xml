@@ -24,4 +24,5 @@
     <string name="tvReleaseDetails2">如果您有碳指标（碳配额或CCER）需要出售，我们可为您联系买家，尽早锁定碳收益，请填写以下信息：</string>
     <string name="tvReleaseDetails3">如果您想大批量收购碳指标，我们可为您提供各类减排指标出售信息，抢占价格优势，满足您对碳指标的需求，请填写以下信息：</string>
 
+    <string name="money">¥</string>
 </resources>
