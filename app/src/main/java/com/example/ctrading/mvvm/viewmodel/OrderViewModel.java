@@ -40,4 +40,22 @@ public class OrderViewModel extends BaseVM{
         }));
         return mutableLiveData;
     }
+
+    @SuppressLint("CheckResult")
+    public MutableLiveData<ProjectBean> deleteProject(String projectId){
+        MutableLiveData<ProjectBean> mutableLiveData = new MutableLiveData<>();
+        ApiService apiService = NetworkApi.createService(ApiService.class);
+        apiService.deleteProject(projectId).compose(NetworkApi.applySchedulers(new BaseObserver<ProjectBean>() {
+            @Override
+            public void onSucceed(ProjectBean projectBean) {
+                mutableLiveData.setValue(projectBean);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                mutableLiveData.setValue(null);
+            }
+        }));
+        return mutableLiveData;
+    }
 }

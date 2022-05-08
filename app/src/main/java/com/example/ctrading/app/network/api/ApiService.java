@@ -46,6 +46,10 @@ public interface ApiService {
     @GET("/project/queryAll")
     Observable<ProjectBean> queryProjectAll();
 
+    //删除订单
+    @POST("/project/delete")
+    Observable<ProjectBean> deleteProject(@Query("projectId") String projectId);
+
     //订单状态修改
     @POST("/project/update")
     Observable<ProjectBean> updateProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
