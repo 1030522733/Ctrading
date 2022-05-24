@@ -38,6 +38,7 @@ public class LogOutPopup extends CenterPopupView {
      * 1 下单确认弹窗
      * 2  清除缓存弹窗
      * 3  是否保存信息弹窗
+     * 4  是否删除订单
      */
     private int flag = 0;
 
@@ -98,6 +99,9 @@ public class LogOutPopup extends CenterPopupView {
         }
         if (flag==3){
             textView.setText("您确定不保存直接退出吗？");
+        }
+        if (flag==4){
+            textView.setText("您确认删除该订单吗？");
         }
     }
 }

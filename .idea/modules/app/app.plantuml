@@ -1,0 +1,731 @@
+@startuml
+
+title __CTRADING.APP's Class Diagram__\n
+
+  namespace androidx.databinding {
+    class androidx.databinding.DataBinderMapperImpl {
+    }
+  }
+  
+
+  namespace androidx.databinding {
+    interface androidx.databinding.DataBindingComponent {
+    }
+  }
+  
+
+  namespace androidx.databinding {
+    namespace library.baseAdapters {
+      class androidx.databinding.library.baseAdapters.BR {
+      }
+    }
+  }
+  
+
+  namespace com.chad.library {
+    class com.chad.library.BR {
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    class com.example.ctrading.BR {
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    class com.example.ctrading.BuildConfig {
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    class com.example.ctrading.DataBinderMapperImpl {
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.base {
+      class com.example.ctrading.app.base.App {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.base {
+      abstract class com.example.ctrading.app.base.BaseAct {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.base {
+      abstract class com.example.ctrading.app.base.BaseFrg {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.base {
+      abstract class com.example.ctrading.app.base.BaseVM {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.global {
+      class com.example.ctrading.app.global.Constant {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.global {
+      class com.example.ctrading.app.global.EventBusTag {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      abstract class com.example.ctrading.app.network.BaseObserver {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      class com.example.ctrading.app.network.BaseResponse {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      class com.example.ctrading.app.network.ExceptionHandle {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      class com.example.ctrading.app.network.FrameWorkNetworkInfo {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      class com.example.ctrading.app.network.HttpErrorHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      interface com.example.ctrading.app.network.INetworkRequiredInfo {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      class com.example.ctrading.app.network.NetworkApi {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      namespace api {
+        interface com.example.ctrading.app.network.api.ApiService {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      namespace interptor {
+        class com.example.ctrading.app.network.interptor.RequestInterceptor {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.network {
+      namespace interptor {
+        class com.example.ctrading.app.network.interptor.ResponseInterceptor {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.utils {
+      class com.example.ctrading.app.utils.CacheUtils {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.utils {
+      class com.example.ctrading.app.utils.DateUtil {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.utils {
+      class com.example.ctrading.app.utils.MmkvUtils {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace app.utils {
+      class com.example.ctrading.app.utils.ParseUtils {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityAboutBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityDetailsBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityInfoBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityLoginBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityMainBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityRegisterBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityReleaseBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityStartBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.ActivityWebBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.FragmentMarketBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.FragmentMatchBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.FragmentOrderBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.FragmentReleaseBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace databinding {
+      class com.example.ctrading.databinding.FragmentSquareBindingImpl {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      class com.example.ctrading.mvvm.One {
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace model.bean {
+        class com.example.ctrading.mvvm.model.bean.ArticleBean {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace model.bean {
+        class com.example.ctrading.mvvm.model.bean.JsonBean {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace model.bean {
+        class com.example.ctrading.mvvm.model.bean.ProjectBean {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace model.bean {
+        class com.example.ctrading.mvvm.model.bean.UserBean {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.AboutActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.DetailsActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.InfoActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.LoginActvity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.MainActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.RegisterActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.ReleaseActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.StartActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.activity {
+        class com.example.ctrading.mvvm.ui.activity.WebActivity {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.adapter {
+        class com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.adapter {
+        class com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.adapter {
+        class com.example.ctrading.mvvm.ui.adapter.RvArticleAdapter {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.adapter {
+        class com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.adapter {
+        class com.example.ctrading.mvvm.ui.adapter.RvOrderAdapter {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.fragment {
+        class com.example.ctrading.mvvm.ui.fragment.MarketFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.fragment {
+        class com.example.ctrading.mvvm.ui.fragment.MatchFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.fragment {
+        class com.example.ctrading.mvvm.ui.fragment.OrderFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.fragment {
+        class com.example.ctrading.mvvm.ui.fragment.ReleaseFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.fragment {
+        class com.example.ctrading.mvvm.ui.fragment.SquareFrgment {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.parts {
+        class com.example.ctrading.mvvm.ui.parts.LogOutPopup {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.parts {
+        class com.example.ctrading.mvvm.ui.parts.SampleTextVIew {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace ui.parts {
+        class com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace viewmodel {
+        class com.example.ctrading.mvvm.viewmodel.DetailsViewModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace viewmodel {
+        class com.example.ctrading.mvvm.viewmodel.FragmentViewModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace viewmodel {
+        class com.example.ctrading.mvvm.viewmodel.MainViewModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace viewmodel {
+        class com.example.ctrading.mvvm.viewmodel.OrderViewModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.ctrading {
+    namespace mvvm {
+      namespace viewmodel {
+        class com.example.ctrading.mvvm.viewmodel.ReleaseViewModel {
+        }
+      }
+    }
+  }
+  
+
+  androidx.databinding.DataBinderMapperImpl -up-|> androidx.databinding.MergedDataBinderMapper
+  com.example.ctrading.DataBinderMapperImpl -up-|> androidx.databinding.DataBinderMapper
+  com.example.ctrading.app.base.App -up-|> android.app.Application
+  com.example.ctrading.app.base.BaseAct -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.ctrading.app.base.BaseAct o-- VDB : binding
+  com.example.ctrading.app.base.BaseAct o-- VM : mViewModel
+  com.example.ctrading.app.base.BaseFrg -up-|> androidx.fragment.app.Fragment
+  com.example.ctrading.app.base.BaseFrg o-- VDB : binding
+  com.example.ctrading.app.base.BaseFrg o-- VM : mViewModel
+  com.example.ctrading.app.base.BaseVM -up-|> androidx.lifecycle.AndroidViewModel
+  com.example.ctrading.app.network.BaseObserver .up.|> io.reactivex.Observer
+  com.example.ctrading.app.network.FrameWorkNetworkInfo .up.|> com.example.ctrading.app.network.INetworkRequiredInfo
+  com.example.ctrading.app.network.HttpErrorHandler .up.|> io.reactivex.functions.Function
+  com.example.ctrading.app.network.interptor.RequestInterceptor .up.|> okhttp3.Interceptor
+  com.example.ctrading.app.network.interptor.RequestInterceptor o-- com.example.ctrading.app.network.INetworkRequiredInfo : iNetworkRequiredInfo
+  com.example.ctrading.app.network.interptor.ResponseInterceptor .up.|> okhttp3.Interceptor
+  com.example.ctrading.databinding.ActivityAboutBindingImpl -up-|> com.example.ctrading.databinding.ActivityAboutBinding
+  com.example.ctrading.databinding.ActivityDetailsBindingImpl -up-|> com.example.ctrading.databinding.ActivityDetailsBinding
+  com.example.ctrading.databinding.ActivityInfoBindingImpl -up-|> com.example.ctrading.databinding.ActivityInfoBinding
+  com.example.ctrading.databinding.ActivityLoginBindingImpl -up-|> com.example.ctrading.databinding.ActivityLoginBinding
+  com.example.ctrading.databinding.ActivityMainBindingImpl -up-|> com.example.ctrading.databinding.ActivityMainBinding
+  com.example.ctrading.databinding.ActivityRegisterBindingImpl -up-|> com.example.ctrading.databinding.ActivityRegisterBinding
+  com.example.ctrading.databinding.ActivityReleaseBindingImpl -up-|> com.example.ctrading.databinding.ActivityReleaseBinding
+  com.example.ctrading.databinding.ActivityStartBindingImpl -up-|> com.example.ctrading.databinding.ActivityStartBinding
+  com.example.ctrading.databinding.ActivityWebBindingImpl -up-|> com.example.ctrading.databinding.ActivityWebBinding
+  com.example.ctrading.databinding.FragmentMarketBindingImpl -up-|> com.example.ctrading.databinding.FragmentMarketBinding
+  com.example.ctrading.databinding.FragmentMatchBindingImpl -up-|> com.example.ctrading.databinding.FragmentMatchBinding
+  com.example.ctrading.databinding.FragmentOrderBindingImpl -up-|> com.example.ctrading.databinding.FragmentOrderBinding
+  com.example.ctrading.databinding.FragmentReleaseBindingImpl -up-|> com.example.ctrading.databinding.FragmentReleaseBinding
+  com.example.ctrading.databinding.FragmentSquareBindingImpl -up-|> com.example.ctrading.databinding.FragmentSquareBinding
+  com.example.ctrading.mvvm.model.bean.ArticleBean .up.|> java.io.Serializable
+  com.example.ctrading.mvvm.model.bean.ArticleBean o-- com.example.ctrading.mvvm.model.bean.ArticleBean.DataBean : data
+  com.example.ctrading.mvvm.model.bean.JsonBean .up.|> com.contrarywind.interfaces.IPickerViewData
+  com.example.ctrading.mvvm.model.bean.ProjectBean .up.|> java.io.Serializable
+  com.example.ctrading.mvvm.model.bean.ProjectBean o-- com.example.ctrading.mvvm.model.bean.ProjectBean.DataBean : data
+  com.example.ctrading.mvvm.model.bean.UserBean .up.|> java.io.Serializable
+  com.example.ctrading.mvvm.model.bean.UserBean o-- com.example.ctrading.mvvm.model.bean.UserBean.DataBean : data
+  com.example.ctrading.mvvm.ui.activity.AboutActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.DetailsActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.DetailsActivity o-- com.example.ctrading.mvvm.model.bean.ProjectBean.DataBean.ProjectsBean : projectsBean
+  com.example.ctrading.mvvm.ui.activity.InfoActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.LoginActvity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.MainActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.RegisterActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.ReleaseActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.ReleaseActivity o-- com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter : releaseAdapter
+  com.example.ctrading.mvvm.ui.activity.StartActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.activity.WebActivity -up-|> com.example.ctrading.app.base.BaseAct
+  com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter -up-|> androidx.fragment.app.FragmentPagerAdapter
+  com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter o-- com.example.ctrading.mvvm.ui.fragment.MarketFragment : marketFragment
+  com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter o-- com.example.ctrading.mvvm.ui.fragment.MatchFragment : matchFragment
+  com.example.ctrading.mvvm.ui.adapter.FrgmentAdapter o-- com.example.ctrading.mvvm.ui.fragment.SquareFrgment : squareFrgment
+  com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter -up-|> androidx.fragment.app.FragmentPagerAdapter
+  com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter o-- com.example.ctrading.mvvm.ui.fragment.ReleaseFragment : releaseFragment1
+  com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter o-- com.example.ctrading.mvvm.ui.fragment.ReleaseFragment : releaseFragment2
+  com.example.ctrading.mvvm.ui.adapter.ReleaseAdapter o-- com.example.ctrading.mvvm.ui.fragment.ReleaseFragment : releaseFragment3
+  com.example.ctrading.mvvm.ui.adapter.RvArticleAdapter -up-|> com.chad.library.adapter.base.BaseQuickAdapter
+  com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter -up-|> com.chad.library.adapter.base.BaseQuickAdapter
+  com.example.ctrading.mvvm.ui.adapter.RvOrderAdapter -up-|> com.chad.library.adapter.base.BaseQuickAdapter
+  com.example.ctrading.mvvm.ui.fragment.MarketFragment -up-|> com.example.ctrading.app.base.BaseFrg
+  com.example.ctrading.mvvm.ui.fragment.MarketFragment o-- com.example.ctrading.mvvm.ui.adapter.RvMarketAdapter : rvMarketAdapter
+  com.example.ctrading.mvvm.ui.fragment.MatchFragment -up-|> com.example.ctrading.app.base.BaseFrg
+  com.example.ctrading.mvvm.ui.fragment.MatchFragment o-- com.example.ctrading.mvvm.ui.fragment.OrderFragment : fragment1
+  com.example.ctrading.mvvm.ui.fragment.MatchFragment o-- com.example.ctrading.mvvm.ui.fragment.OrderFragment : fragment2
+  com.example.ctrading.mvvm.ui.fragment.OrderFragment -up-|> com.example.ctrading.app.base.BaseFrg
+  com.example.ctrading.mvvm.ui.fragment.OrderFragment o-- com.example.ctrading.mvvm.ui.adapter.RvOrderAdapter : rvOrderAdapter
+  com.example.ctrading.mvvm.ui.fragment.ReleaseFragment -up-|> com.example.ctrading.app.base.BaseFrg
+  com.example.ctrading.mvvm.ui.fragment.SquareFrgment -up-|> com.example.ctrading.app.base.BaseFrg
+  com.example.ctrading.mvvm.ui.fragment.SquareFrgment o-- com.example.ctrading.mvvm.ui.adapter.RvArticleAdapter : rvArticleAdapter
+  com.example.ctrading.mvvm.ui.parts.LogOutPopup -up-|> com.lxj.xpopup.core.CenterPopupView
+  com.example.ctrading.mvvm.ui.parts.SampleTextVIew -up-|> android.widget.TextView
+  com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration -up-|> androidx.recyclerview.widget.RecyclerView.ItemDecoration
+  com.example.ctrading.mvvm.viewmodel.DetailsViewModel -up-|> com.example.ctrading.app.base.BaseVM
+  com.example.ctrading.mvvm.viewmodel.FragmentViewModel -up-|> com.example.ctrading.app.base.BaseVM
+  com.example.ctrading.mvvm.viewmodel.MainViewModel -up-|> com.example.ctrading.app.base.BaseVM
+  com.example.ctrading.mvvm.viewmodel.OrderViewModel -up-|> com.example.ctrading.app.base.BaseVM
+  com.example.ctrading.mvvm.viewmodel.ReleaseViewModel -up-|> com.example.ctrading.app.base.BaseVM
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

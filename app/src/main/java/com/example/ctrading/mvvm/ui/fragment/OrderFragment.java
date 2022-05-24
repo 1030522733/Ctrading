@@ -15,8 +15,10 @@ import com.example.ctrading.databinding.FragmentOrderBinding;
 import com.example.ctrading.mvvm.model.bean.ProjectBean;
 import com.example.ctrading.mvvm.ui.activity.ReleaseActivity;
 import com.example.ctrading.mvvm.ui.adapter.RvOrderAdapter;
+import com.example.ctrading.mvvm.ui.parts.LogOutPopup;
 import com.example.ctrading.mvvm.ui.parts.SpaceItemDecoration;
 import com.example.ctrading.mvvm.viewmodel.OrderViewModel;
+import com.lxj.xpopup.XPopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +75,8 @@ public class OrderFragment extends BaseFrg<OrderViewModel, FragmentOrderBinding>
                             (ProjectBean.DataBean.ProjectsBean) adapter.getData().get(position);
                     String projectId = bean.getProjectId();
                     deleteProject(projectId,position);
+//                    LogOutPopup logOutPopup = new LogOutPopup(this.getContext(), 4);
+//                    new XPopup.Builder(this.getContext()).asCustom(logOutPopup).show();
                     break;
                 case R.id.btRvOrderMatch:
                     break;
@@ -98,19 +102,21 @@ public class OrderFragment extends BaseFrg<OrderViewModel, FragmentOrderBinding>
         mViewModel.getProject(phone).observe(this, new Observer<ProjectBean>() {
             @Override
             public void onChanged(ProjectBean projectBean) {
-                if (projectBean.getCode() == 0) {
-                    list.clear();
-                    if (flag == 0) {
-                        for (int i = 0; i < projectBean.getData().getProjects().size(); i++) {
-                            if (projectBean.getData().getProjects().get(i).getStauts() == 0) {
-                                list.add(projectBean.getData().getProjects().get(i));
+                if (projectBean != null){
+                    if (projectBean.getCode() == 0) {
+                        list.clear();
+                        if (flag == 0) {
+                            for (int i = 0; i < projectBean.getData().getProjects().size(); i++) {
+                                if (projectBean.getData().getProjects().get(i).getStauts() == 0) {
+                                    list.add(projectBean.getData().getProjects().get(i));
+                                }
                             }
+                        } else {
+                            list.addAll(projectBean.getData().getProjects());
+                            LogUtils.json(list.get(0));
                         }
-                    } else {
-                        list.addAll(projectBean.getData().getProjects());
-                        LogUtils.json(list.get(0));
+                        rvOrderAdapter.notifyDataSetChanged();
                     }
-                    rvOrderAdapter.notifyDataSetChanged();
                 }
             }
         });

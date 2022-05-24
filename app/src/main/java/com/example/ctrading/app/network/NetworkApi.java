@@ -34,7 +34,8 @@ public class NetworkApi {
     /**
      * API访问地址
      */
-    private static final String BASE_URL = "http://192.168.10.116:8080";
+//    private static final String BASE_URL = "http://192.168.31.89:8080";
+    private static final String BASE_URL = "http://192.168.43.102:8080";
 
     private static OkHttpClient okHttpClient;
 

@@ -20,7 +20,8 @@ import retrofit2.http.Query;
 public interface ApiService {
     //登录
     @GET("/user/query")
-    Observable<UserBean> login(@Query("phone")String phone,@Query("password")String password);
+    Observable<UserBean> login(@Query("phone")String phone,
+                               @Query("password")String password);
 
     //注册
     @POST("/user/add")
@@ -36,7 +37,8 @@ public interface ApiService {
 
     //添加订单
     @POST("/project/add")
-    Observable<ProjectBean> addProject(@Body ProjectBean.DataBean.ProjectsBean projectsBean);
+    Observable<ProjectBean> addProject
+    (@Body ProjectBean.DataBean.ProjectsBean projectsBean);
 
     //查询个人订单
     @GET("/project/query")

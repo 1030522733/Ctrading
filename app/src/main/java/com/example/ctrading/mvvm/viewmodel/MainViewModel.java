@@ -46,7 +46,8 @@ public class MainViewModel extends BaseVM {
     public MutableLiveData<UserBean> login(String phone, String password) {
         MutableLiveData<UserBean> mutableLiveData = new MutableLiveData<>();
         ApiService apiService = NetworkApi.createService(ApiService.class);
-        apiService.login(phone, password).compose(NetworkApi.applySchedulers(new BaseObserver<UserBean>() {
+        apiService.login(phone, password).compose(NetworkApi.applySchedulers
+                (new BaseObserver<UserBean>() {
             @Override
             public void onSucceed(UserBean userBean) {
                 mutableLiveData.setValue(userBean);

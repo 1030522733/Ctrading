@@ -32,10 +32,15 @@ public class RvOrderAdapter extends BaseQuickAdapter<ProjectBean.DataBean.Projec
         }else {
             baseViewHolder.setGone(R.id.vvRvOrderMore,true);
         }
+        baseViewHolder.setGone(R.id.btRvOrderMatch,false);
 
         int[] images = {R.drawable.img_tree0,R.drawable.img_wind0,R.drawable.img_sun0
         ,R.drawable.img_water0,R.drawable.img_thing0,R.drawable.img_biogas0,R.drawable.img_it0};
-        baseViewHolder.setImageResource(R.id.ivOrderType,images[projectsBean.getResourcesType()]);
+        if (projectsBean.getResourcesType()<7){
+            baseViewHolder.setImageResource(R.id.ivOrderType,images[projectsBean.getResourcesType()]);
+        }else {
+            baseViewHolder.setImageResource(R.id.ivOrderType,images[0]);
+        }
 
         baseViewHolder.setText(R.id.tvRvOrderOrg,projectsBean.getOrganization());
         baseViewHolder.setText(R.id.tvRvOrderAddress,projectsBean.getAddress());

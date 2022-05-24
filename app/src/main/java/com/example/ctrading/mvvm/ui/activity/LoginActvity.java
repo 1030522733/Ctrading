@@ -44,7 +44,8 @@ public class LoginActvity extends BaseAct<MainViewModel, ActivityLoginBinding> {
                 binding.aviLogin.show();
                 banClick();
             } else {
-                Toasty.normal(mContext, "请输入正确的手机号和密码", Toasty.LENGTH_SHORT).show();
+                Toasty.normal(mContext, "请输入正确的手机号和密码",
+                        Toasty.LENGTH_SHORT).show();
             }
         });
 
@@ -62,7 +63,8 @@ public class LoginActvity extends BaseAct<MainViewModel, ActivityLoginBinding> {
                 if (userBean.getData() != null) {
                     if (phone.equals(userBean.getData().getPhone()) &&
                             password.equals(userBean.getData().getPassword())) {
-                        Toasty.success(mContext, "登录成功", Toasty.LENGTH_SHORT).show();
+                        Toasty.success(mContext, "登录成功",
+                                Toasty.LENGTH_SHORT).show();
                         MmkvUtils.put(Constant.IS_LOGIN,true);
                         MmkvUtils.put(Constant.MY_PHONE,userBean.getData().getPhone());
                         MmkvUtils.put(Constant.MY_PASSWORD,userBean.getData().getPassword());
